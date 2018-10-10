@@ -1,0 +1,45 @@
+# based on https://github.com/gchq/stroom-docs/blob/master/.travis.yml
+language: node_js
+dist: trusty
+sudo: required
+
+node_js:
+  - "stable"
+
+cache:
+  directories:
+    - node_modules # NPM packages
+
+before_install:
+  - sudo apt-get -qq update
+    #calibre required for gitbook pdf
+  - sudo apt-get install -y calibre
+
+install:
+  #- . $HOME/.nvm/nvm.sh
+  #- nvm install stable
+  #- nvm use stable
+  #- npm install
+  - npm install -g gitbook-cli
+
+script:
+    - gitbook install
+    - gitbook build
+
+before_deploy:
+  #Ensure we are in the right dir
+  - cd ${TRAVIS_BUILD_DIR}
+
+deploy:
+    #Push the generated gitbook html to the gh-pages branch
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: _book
+    target_branch: gh-pages
+    on:
+      branch: master
+
+branches:
+  only:
+    - master
