@@ -14,5 +14,5 @@
   * [Bitstream Generation](pnr/bitstream-gen.md)
 * [Hardware](hardware/intro.md)
   * [CGRA Generator](hardware/CGRA-Generator.md)
-  * [CGRA Specs](CGRA-Specs/intro.md)
-  * [Bitstream Specification](hardware/CGRA-Specs/bitstream-spec.md)
+  * [CGRA Specs](hardware/CGRA-Specs/intro.md)
+    * [Bitstream Specification](hardware/CGRA-Specs/bitstream-spec.md)
