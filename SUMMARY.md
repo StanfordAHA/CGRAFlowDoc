@@ -13,4 +13,6 @@
     * [Detailed Routing](pnr/detailed-routing.md)
   * [Bitstream Generation](pnr/bitstream-gen.md)
 * [Hardware](hardware/intro.md)
-  * [Bitstream Specification](hardware/bitstream-spec.md)
+  * [CGRA Generator](hardware/CGRA-Generator.md)
+  * [CGRA Specs](CGRA-Specs/intro.md)
+  * [Bitstream Specification](hardware/CGRA-Specs/bitstream-spec.md)
