@@ -5,5 +5,12 @@
 * [CoreIR](coreir/intro.md)
 * [Place and Route](pnr/intro.md)
   * [Packing](pnr/packing.md)
+  * [Placement](pnr/placement.md)
+    * [Global Placement](pnr/global-placement.md)
+    * [Detailed Placement](pnr/detailed-placement.md)
+  * [Routing](pnr/routing.md)
+    * [Global Routing](pnr/global-routing.md)
+    * [Detailed Routing](pnr/detailed-routing.md)
+  * [Bitstream Generation](pnr/bitstream-gen.md)
 * [Hardware](hardware/intro.md)
-
+  * [Bitstream Specification](hardware/bitstream-spec.md)

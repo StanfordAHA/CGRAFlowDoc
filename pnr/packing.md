@@ -1,7 +1,7 @@
 # Packing
 The mapped netlist has many instances that can be packed into one single PE
 tile: this process is called packing. It aims to reduce the number of nets and
-instances that go through placement and routing, thus reducing the runtime.
+instances that go through placement and routing, thus decreasing the runtime.
 
 Currently the packer performs the following packing rules:
 ### Constant folding

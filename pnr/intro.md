@@ -18,11 +18,12 @@ has many built-in checks so if PnR tools produce an illegal result, the mistake
 will be caught by `bsbuilder`. However, as `garnet` becomes more and more
 mature, PnR tools may choose `garnet` to generate bitstream directly.
 
-Overall, there are three stages of PnR:
+Overall, there are four stages of PnR:
 - [Packing](packing.md)
-- Placement
-  - Global placement
-  - Detailed placement
-- routing
-  - Global routing (to be implemented)
-  - Detailed routing
+- [Placement](placement.md)
+  - [Global placement](global-placement.md)
+  - [Detailed placement](detailed-placement.md)
+- [Routing](routing.md)
+  - [Global routing](global-routing.md) (to be implemented)
+  - [Detailed routing](detailed-routing.md)
+- [Bitstream Generation](bitstream-gen.md)
