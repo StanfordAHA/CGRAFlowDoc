@@ -36,3 +36,7 @@ Usage: ./scripts/pnr_flow.sh [--no-reg-fold] <arch_file> <netlist.json> [<output
     if <output.bsb> not specified, it will output <netlist.bsb>
     to the same directory as <netlist.json>
 ```
+
+urrently everything is implemented in Python and it is compatible with both
+Python 2 and Python 3. In the near future the core-part of the toolchain will
+be implemented in C++ with Python binding.
