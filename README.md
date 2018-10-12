@@ -1,5 +1,6 @@
 # Introduction
 [![Document Online](https://img.shields.io/badge/document-online-green.svg)](https://stanfordaha.github.io/CGRAFlowDoc/)
+[![Build Status](https://travis-ci.com/StanfordAHA/CGRAFlowDoc.svg?branch=master)](https://travis-ci.com/StanfordAHA/CGRAFlowDoc)
 
 While advances in software tools and frameworks have enabled individuals to create interesting new applications/products in reasonable time frames, hardware designs take large teams multiple years. This disparity in required effort decreases hardware innovation and interest in the field.  To address this issue, we must make hardware/software systems easier and more fun to develop, which means that we need to enable a more “agile” hardware development flow – making it possible to easily (and quickly) modify an existing design and play with the resulting system. To foster this goal of agile hardware design, we propose to create an open source hardware/software tool chain to rapidly create and validate alternative hardware implementations and a new open-source system RISC-V/CGRA SoC which will enable rapid execution/emulation of the resulting design.
 

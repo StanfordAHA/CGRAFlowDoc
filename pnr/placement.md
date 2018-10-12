@@ -1,5 +1,5 @@
 # Introduction to Placement
-Quote from [Wikipedia entry](https://en.wikipedia.org/wiki/Placement_(electronic_design_automation)):
+Quote from [Wikipedia entry](https://en.wikipedia.org/wiki/Placement_(electronic_design_automation):
 > Placement is an essential step in electronic design automation - the portion of the physical design flow that assigns exact locations for various circuit components within the chip's core area. An inferior placement assignment will not only affect the chip's performance but might also make it non-manufacturable by producing excessive wirelength, which is beyond available routing resources. Consequently, a placer must perform the assignment while optimizing a number of objectives to ensure that a circuit meets its performance demands.
 
 In PnR toolchain, placement happens right after the packing stage. The main
