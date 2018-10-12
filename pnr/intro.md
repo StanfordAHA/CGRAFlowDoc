@@ -28,6 +28,13 @@ Overall, there are four stages of PnR:
   - [Detailed routing](detailed-routing.md)
 - [Bitstream Generation](bitstream-gen.md)
 
+### Install
+```
+$ git clone https://github.com/Kuree/cgra_pnr
+$ make
+$ pip install -r requirements.txt
+```
+
 ### Usage
 `cgra_info` repo has a one-button script to run the entire PnR flow:
 ```
