@@ -27,4 +27,6 @@ a long to converge to a good solution (Python is very slow.)
 
 ### Analytical Placer
 This placer tries to minimize the cost function, which is a combination of
-HPWL, legal energy, and overlapping energy.
+HPWL, legal energy, and overlapping energy. See the figure below for better
+visualization.
+![Analytical placer](img/global.svg)
