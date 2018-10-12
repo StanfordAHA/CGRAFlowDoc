@@ -3,6 +3,7 @@ The mapped netlist has many instances that can be packed into one single PE
 tile: this process is called packing. It aims to reduce the number of nets and
 instances that go through placement and routing, thus decreasing the runtime.
 
+## Packing Rules:
 Currently the packer performs the following packing rules:
 ### Constant folding
 If a constant only drives **one** net with **one** input port, we will fold the
@@ -31,3 +32,17 @@ If for some reason we don't want to fold registers, such as for debugging
 purpose, we can change a register to an adder where the other operand's
 register will be a constant 0. You can use `--no-reg-folg` in the PnR toolchain
 to specifiy this need.
+
+## Usage:
+```
+$ python packer.py -h
+usage: CGRA Packing tool [-h] -n INPUT -o OUTPUT [--no-reg-fold]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n INPUT, --netlist INPUT
+                        Mapped netlist file, e.g. harris.json
+  -o OUTPUT, --output OUTPUT
+                        Packed netlist file, e.g. harris.packed
+  --no-reg-fold         If set, the packer will turn registers into PE tiles
+```

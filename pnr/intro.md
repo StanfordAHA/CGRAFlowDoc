@@ -27,3 +27,12 @@ Overall, there are four stages of PnR:
   - [Global routing](global-routing.md) (to be implemented)
   - [Detailed routing](detailed-routing.md)
 - [Bitstream Generation](bitstream-gen.md)
+
+### Usage
+`cgra_info` repo has a one-button script to run the entire PnR flow:
+```
+$ ./scripts/pnr_flow.sh
+Usage: ./scripts/pnr_flow.sh [--no-reg-fold] <arch_file> <netlist.json> [<output.bsb>]
+    if <output.bsb> not specified, it will output <netlist.bsb>
+    to the same directory as <netlist.json>
+```

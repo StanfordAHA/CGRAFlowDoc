@@ -18,3 +18,33 @@ to a rough location and then legalized iteratively. In detailed placement, the
 instance locations are further refined to reduce the wirelength. Because of
 different chip designs, placement algorithms can get very complicated and
 legalization and re-packing can happen at any iteration.
+
+### Usage:
+```
+$ python place.py -h
+usage: CGRA Placer [-h] -i PACKED_FILENAME -e NETLIST_EMBEDDING -o
+                   PLACEMENT_FILENAME [-c CGRA_ARCH] [--no-reg-fold]
+                   [--no-vis] [-s SEED] [-u LAMBDA_URL] [-f FPGA_ARCH]
+                   [--mock MOCK_SIZE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i PACKED_FILENAME, --input PACKED_FILENAME
+                        Packed netlist file, e.g. harris.packed
+  -e NETLIST_EMBEDDING, --embedding NETLIST_EMBEDDING
+                        Netlist embedding file, e.g. harris.emb
+  -o PLACEMENT_FILENAME, --output PLACEMENT_FILENAME
+                        Placement result, e.g. harris.place
+  -c CGRA_ARCH, --cgra CGRA_ARCH
+                        CGRA architecture file
+  --no-reg-fold         If set, the placer will treat registers as PE tiles
+  --no-vis              If set, the placer won't show visualization result for
+                        placement
+  -s SEED, --seed SEED  Seed for placement. default is 0
+  -u LAMBDA_URL, --url LAMBDA_URL
+                        Lambda function entry for detailed placement. If set,
+                        will try to connect to that URL
+  -f FPGA_ARCH, --fpga FPGA_ARCH
+                        ISPD FPGA architecture file
+  --mock MOCK_SIZE      Mock CGRA board with provided size
+```
