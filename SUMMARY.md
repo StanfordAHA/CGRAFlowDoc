@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Halide](halide/intro.md)
+  * [Halide to Hardware](halide/halide-to-hardware.md)
 * [CoreIR](coreir/intro.md)
 * [Place and Route](pnr/intro.md)
   * [Packing](pnr/packing.md)
