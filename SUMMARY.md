@@ -12,6 +12,8 @@
     * [Global Routing](pnr/global-routing.md)
     * [Detailed Routing](pnr/detailed-routing.md)
   * [Bitstream Generation](pnr/bitstream-gen.md)
+  * [Analysis](pnr/analysis.md)
+  * [Retiming](pnr/retiming.md)
 * [Hardware](hardware/intro.md)
   * [CGRA Generator](hardware/CGRA-Generator.md)
   * [CGRA Specs](hardware/CGRA-Specs/intro.md)

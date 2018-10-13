@@ -46,3 +46,32 @@ optional arguments:
                         Packed netlist file, e.g. harris.packed
   --no-reg-fold         If set, the packer will turn registers into PE tiles
 ```
+## Packing file format
+There are several sections in the file:
+- Netlists: the netlist after packing stage.
+- Folded Blocks: instances removed through packing stage. It also specifies
+  which port the const/reg folded to.
+- ID to Names: conversion from the internal block IDs to the instance name
+- Changed to PE: normally empty unless `--no-reg-fold` is used.
+- Netlist Bus: tell you which track the net ueses, either 16-bit or 1-bit.
+
+```
+Netlists:
+e1: (p2, out)   (i0, in)
+e2: (i1, out)   (p2, data0)
+
+Folded Blocks:
+(c3, out) -> (p2, const2__348, data1)
+
+ID to Names:
+i0: io16_out
+i1: io16in_in_0
+p2: mul_347_348_349_PE
+c3: const2__348
+
+Changed to PE:
+
+Netlist Bus:
+e1: 16
+e2: 16
+```

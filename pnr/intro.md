@@ -28,6 +28,12 @@ Overall, there are four stages of PnR:
   - [Detailed routing](detailed-routing.md)
 - [Bitstream Generation](bitstream-gen.md)
 
+Timing and area analysis:
+- [Analysis](analysis.md)
+
+Call for contribution:
+- [Retiming](retiming.md)
+
 ### Install
 ```
 $ git clone https://github.com/Kuree/cgra_pnr

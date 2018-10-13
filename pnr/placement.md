@@ -48,3 +48,13 @@ optional arguments:
                         ISPD FPGA architecture file
   --mock MOCK_SIZE      Mock CGRA board with provided size
 ```
+
+## Placement file format:
+The first line is a header telling you the column name and the second line is the separator.
+```
+Block Name          X   Y       #Block ID
+ ----------------------------
+ io16_out        17  1       #i0
+ io16in_in_0     0   16      #i1
+ mul_347_348_349_PE      9   9       #p2
+```
