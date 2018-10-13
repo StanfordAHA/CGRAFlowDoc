@@ -1,3 +1,4 @@
 {
-    "title": "The Ultimate Documentation for CGRAFlow"
+    "title": "The Ultimate Documentation for CGRAFlow",
+    "plugins": ["mathjax"] 
 }

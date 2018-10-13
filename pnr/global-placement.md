@@ -30,3 +30,18 @@ This placer tries to minimize the cost function, which is a combination of
 HPWL, legal energy, and overlapping energy. See the figure below for better
 visualization.
 ![Analytical placer](img/global.svg)
+
+The cost function to minimize the following cost function:
+
+$$
+\vec{F_i} = <\sum^n_{j=1}k_n\frac{y_i - x_j}{d_{ij}}d_{ij}^2 - \sum^n_{j=1}k_s\frac{x_i - x_j}{d_{ij}}S_{ij}^2,
+            \sum^n_{j=1}k_n\frac{y_i - y_j}{d_{ij}}d_{ij}^2 - \sum^n_{j=1}k_s\frac{y_i - y_j}{d_{ij}}S_{ij}^2>,
+$$
+where $$k_n$$ is the force constant for inter-kernel cluster connections,
+$$d_{ij}$$ is the distance between cluster $$i$$ and cluster $$j$$, $$k_s$$ is
+the force constant for overlapping, and $$S_{ij}$$ is the overlapped area
+between these two clusters. Notice that $$k_s$$ is not a constant as if two
+clusters have no overlapping area, the overlapping force is zero. Hence
+$$\vec{F}$$ is not differentiable everywhere. One can approximate the
+overlapping force with $$f_s(d_{ij}) = e^{d_{ij} - C_{ij}}$$, where $$C_{ij}$$
+is determined by the distance between two clusters.
