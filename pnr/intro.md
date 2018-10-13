@@ -54,3 +54,9 @@ Usage: ./scripts/pnr_flow.sh [--no-reg-fold] <arch_file> <netlist.json> [<output
 Currently everything is implemented in Python and it is compatible with both
 Python 2 and Python 3. In the near future the core-part of the toolchain will
 be implemented in C++ with Python binding.
+
+### Place for FPGA
+The placer should be able to place various FPGA placement benchmark such as
+VPR. Titan 23, and ISPD. However, because it's not designed to place generic
+netlists, it may not obtain an optimal solution, or may be very slow to
+converge.

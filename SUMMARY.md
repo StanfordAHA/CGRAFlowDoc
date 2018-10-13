@@ -16,6 +16,7 @@
   * [Analysis](pnr/analysis.md)
   * [Retiming](pnr/retiming.md)
 * [Hardware](hardware/intro.md)
+  * [BSB Format](hardware/bsb-format.md)
   * [CGRA Generator](hardware/CGRA-Generator.md)
   * [CGRA Specs](hardware/CGRA-Specs/intro.md)
     * [Bitstream Specification](hardware/CGRA-Specs/bitstream-spec.md)

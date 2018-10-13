@@ -31,7 +31,7 @@ HPWL, legal energy, and overlapping energy. See the figure below for better
 visualization.
 ![Analytical placer](img/global.svg)
 
-The cost function to minimize the following cost function:
+The goal is to minimize the following cost function:
 
 $$
 \vec{F_i} = <\sum^n_{j=1}k_n\frac{y_i - x_j}{d_{ij}}d_{ij}^2 - \sum^n_{j=1}k_s\frac{x_i - x_j}{d_{ij}}S_{ij}^2,
@@ -45,3 +45,6 @@ clusters have no overlapping area, the overlapping force is zero. Hence
 $$\vec{F}$$ is not differentiable everywhere. One can approximate the
 overlapping force with $$f_s(d_{ij}) = e^{d_{ij} - C_{ij}}$$, where $$C_{ij}$$
 is determined by the distance between two clusters.
+
+Actually there is another entry in the cost function pertaining to
+legalization. Due to its complexity it is not covered here.

@@ -19,6 +19,15 @@ instance locations are further refined to reduce the wirelength. Because of
 different chip designs, placement algorithms can get very complicated and
 legalization and re-packing can happen at any iteration.
 
+### Domain Specific Placement Algorithm
+The placement algorithm uses the fact that all the inputs are generated
+from Halide. Hence the inputs carries many patterns unique to image
+processing applications, such as the usage of line buffer. The placement
+algorithm first identifies the computational graph via static graph analysis.
+Then it partitions the netlists into much smaller clusters. 
+
+(keyi: more details to come.)
+
 ### Usage:
 ```
 $ python place.py -h
