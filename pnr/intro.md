@@ -10,6 +10,9 @@ more input pins/ports. We will use pin and ports interchangably throughout this
 documentation. In out CGRA, the ports are either 16-bit or 1-bit, such as
 `data0` and `wen`.
 
+The figure below shows the PnR result for a 2x2 grid (credit: Steve).
+![PnR example](img/pnr.svg)
+
 The output from the PnR toolchain is usually a bitstream, which encodes the
 control logic and will be load to the chip to perform computation. In our
 CGRAFlow, `cgra_pnr` outputs an assembly-level human-readable code that can be
