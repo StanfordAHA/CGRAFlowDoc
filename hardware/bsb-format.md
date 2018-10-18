@@ -1,6 +1,10 @@
 # Introduction to BSB format
-`bsb` is used by `cgra_pnr` and serpent (the PnR tool before `cgra_pnr` was
-developed.) There are several sections in the `bsb` files:
+
+`bsb` (bitstream-builder format) files are emitted by `cgra_pnr` and
+serpent (an alternative brute-force/greedy PnR tool). `bsb` files are
+used by the `bsbuilder` tool to produce CGRA configuration bitstreams.
+There are several sections in the `bsb` files:
+
 + Placement
 + IO
 + Routing
@@ -21,7 +25,8 @@ Tx0201_add(const0_0,reg)                    # add_704_705_706$binop
 ```
 
 `Tx{TILE_NUM}_{OP}` refers a specific tile with its `TILE_NUM`, which is
-specified in `cgra_info` file. `{OP}` is the opcode for the tile, which is
+specified in `cgra_info` file. 
+`{OP}` is the opcode for the tile, which is
 given in the input netlist JSON file. `({CONN1}, {CONN2}, {CONN3})` are used
 to describe the connectivity of the tile. Please notice that for binary ops,
 such as `add`, there are only two connections, where as for `mux`, there are
@@ -30,6 +35,49 @@ is an constant folded in one of its operands, it will have
 `const{value}_{value}` in lieu of the wire, where `{value}` specifies the
 constant value. If a register is folded to the tile, `reg` will be used in
 stead.
+
+`TILE_NUM` is a 16-bit number where the first and second eight-bit
+quantities respectively indicate the tile's row and column position.
+Also see the 
+<a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec#tile_number">
+PE Spec</a>.
+
+A list of supported ops can be found in the CGRA 
+<a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec#alu_ops">
+PE Spec</a>
+that is auto-generated each time a design is built.  The basic ops include
+`add, sub, abs, gte_max, lte_min, sel, mult_0, mult_1, mult_2, rshft,
+lshft, or, and,` and `xor.`
+Each op can be optionally prepended by `u` or `s` to indicate signed or unsigned,
+and optionally suffixed by a flag-set operation, e.g. `Tx0102_usub.ge`
+sets up the tile in row 1, column 2 to do an unsigned subtract and
+then set the GE flag.  Supported flags are found in the
+<a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec#pe_flags">
+PE Spec</a> and are similar to those available in the ARM
+architecture,
+including `eq, ne, cs, cc, mi, pl, vs, vc, hi, ls, ge, lt, gt,` and `le.`
+
+`Bsbuilder` also supports a number of convenient aliases e.g.
+
+<pre>
+    ALIAS['eq'] = 'sub.eq'
+
+    ALIAS['gte'] = 'sub.ge'
+    ALIAS['ge']  = 'sub.ge'
+
+    ALIAS['lte'] = 'sub.le'
+    ALIAS['le']  = 'sub.le'
+
+    ALIAS['gt']  = 'sub.gt'
+    ALIAS['lt']  = 'sub.lt'
+
+    ALIAS['max'] = 'gte_max'
+    ALIAS['min'] = 'lte_min'
+
+    ALIAS['mul'] = 'mult_0'
+    ALIAS['mux'] = 'sel'
+</pre>
+
 
 ## IO Section
 Because the CGRA chip has two different width of tracks, i.e. 16-bit and 1bit,
