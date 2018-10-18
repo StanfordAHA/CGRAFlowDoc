@@ -28,13 +28,12 @@ and figure out where tile makes the jump and reconstruct `in -> out` format.
 
 <pre>
 % CGRAGenerator/bitstream/bsbuilder/bsbuilder.py \
-    < pointwise_annotated.bsb \
-    > pointwise_pnr_bitstream
+    < pointwise_annotated.bsb > pointwise_pnr_bitstream
 </pre>
 
 where
 
-* `pointwise_annotated.bsb` is the bsb file input and
+* `pointwise_annotated.bsb` is the bsb file input
 <pre>
     # INPUT::mul_347_348_349_PE.data.in.0
     Tx0101_in_s3t0 -> Tx0101_out_s2t0
