@@ -1,10 +1,10 @@
 # Bitstream Generation
 Given packing, placement, and routing result, we can finally write the
-bitstream! In `cgra_pnr` I adopt a simple assembly language made from Steve
-that has a tool called `bsbuilder` to compile the assembly language to the
+bitstream! In `cgra_pnr` I adopt Steve's simple assembly language, which his
+`bsbuilder` tool can compile into an
 actual bitstream. We will call the language `bsb`, short for `bitstream
-builder`. You can see more details about `bsb` in this
-[section](../hardware/bsb-format.md).
+builder format`. You can see more details about `bsb` in the
+[BSB-Format section](../hardware/bsb-format.md).
 
 There are several reasons to use `bsb` files:
 1. It's human-readble and editable. So it's easy to spot any error and correct
