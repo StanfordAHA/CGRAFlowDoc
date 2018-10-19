@@ -70,3 +70,7 @@ produces design-independent CoreIR intermediate code
 
 \8. text
 
+
+<b>9. foo bar</b> bazzle
+
+
