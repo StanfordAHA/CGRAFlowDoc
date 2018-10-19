@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [Tool Chain Overview](overview/toolchain.md)
 * [Halide](halide/intro.md)
   * [Halide to Hardware](halide/halide-to-hardware.md)
 * [CoreIR](coreir/intro.md)
