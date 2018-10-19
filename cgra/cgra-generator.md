@@ -4,9 +4,10 @@ Halide front end, which compiles to design-independent intermediate
 form).
 
 ## Usage
-
+```
   git clone https://github.com/StanfordAHA/CGRAGenerator
   CGRAGenerator/hardware/generator_z/top/build_cgra.sh
+```
 
 ## What it does
 
@@ -47,7 +48,7 @@ optional user-specified parameters, Genesis2 builds a complete
 elaborated Verilog design along with an exhaustive list of the
 parameters it used.  As of this writing, the `build_cgra` script
 invokes the following Genesis2 default command
-
+```
   Genesis2.pl -parse -generate -top top -hierarchy top.xml \
     -xml ./bin/shortmem.xml \
     -input \
@@ -102,6 +103,7 @@ invokes the following Genesis2 default command
     ../jtag/Template/src/digital/reg_file.svp \
     ../jtag/Template/src/digital/cfg_and_dbg.svp \
     || exit 13
+```
 
 Pre-built configuration files `shortmem.xml` and `tallmem.xml` contain
 user parameters that can direct Genesis2 to build a shortmem design
