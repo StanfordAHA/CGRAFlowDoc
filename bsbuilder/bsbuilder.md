@@ -1,9 +1,12 @@
 # Introduction to BSB format
 
-`bsb` (bitstream-builder format) files are emitted by `cgra_pnr` and
-serpent (an alternative brute-force/greedy PnR tool). `bsb` files are
-used by the `bsbuilder` tool to produce CGRA configuration bitstreams.
-There are several sections in the `bsb` files:
+`bsb` (bitstream-builder format) files are emitted by `cgra_pnr.`
+`bsb` files are used by the `bsbuilder` tool to produce CGRA
+configuration bitstreams.  In general, like most assembly languages,
+one line of bsb compiles into exactly one CGRA machine instruction
+(or sometimes just a single field within the instruction).
+
+There are several sections in `bsb` files, including
 
 + Placement
 + IO
@@ -148,9 +151,9 @@ This is where the MST branch splits.
 
 ## Usage
 You can find `bsbuilder.py` in `CGRAGenerator/bitstream/bsbuilder/`. To build
-annotated bitstream, simply do
+an annotated bitstream, simply do
 ```
 $ python bsbuilder.py cgra_info.txt < input.bsb > output.bsa
 ```
-where `cgra_info.txt` is built by the CGRAgenerator and `input.bsb` is the
-`bsb` file built by either `serpent` or `cgra_info`.
+where `cgra_info.txt` is design-specific info created by the
+CGRA generator, and `input.bsb` is the `bsb` file built by `cgra_pnr.`
