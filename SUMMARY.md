@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Tool Chain Overview](overview/toolchain.md)
 * [CGRA Generator](cgra/cgra-generator.md)
-  * [PE Spec](hardware/CGRA-Specs/pe-spec.md)
+  * [PE Spec](cgra/pe-spec.md)
 * [Halide](halide/intro.md)
   * [Usage Instructions](halide/usage.md)
   * [Halide DSL Basics](halide/halide-dsl-basics.md)
