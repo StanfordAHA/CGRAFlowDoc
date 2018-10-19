@@ -7,9 +7,11 @@ How to contribute to the CGRAFlow docs:
   https://guides.github.com/features/mastering-markdown/
 * remember to add your doc to the table of contents file
   "CGRAFlowDoc/SUMMARY.md" so it will appear in the webpage nav bar
+  
   E.g.
-    "* [Bitstream Specification](hardware/CGRA-Specs/bitstream-spec.md)"
+  
+    ```* [Bitstream Specification](hardware/CGRA-Specs/bitstream-spec.md)```
 * when you push your changes to the master branch, gitbook will
   automatically build the html-based master doc
   https://travis-ci.com/StanfordAHA/CGRAFlowDoc/builds
-* final doc can be reviewed here
+* final doc can be reviewed here: https://stanfordaha.github.io/CGRAFlowDoc/
