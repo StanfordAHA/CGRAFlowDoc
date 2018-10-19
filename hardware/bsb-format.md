@@ -10,16 +10,16 @@ There are several sections in the `bsb` files:
 + Routing
 
 ## Placement Section
-An example of placement section is shown below:
+An example of the placement section is shown below:
 ```
 Tx0102_add(wire,wire)                       # add_704_707_708$binop
 Tx0105_sle(wire,const255_255)               # smin_689_690_691$scomp$compop
-Tx0106_uge(const59_59,wire)                 # lb_p3_cim_stencil_update_stream$valcounter_1$ult$comp$compop
+Tx0106_uge(const59_59,wire)                 # lb_pcus$valcounter_1$ult$comp$compop
 Tx0107_add(wire,wire)                       # add_762_763_764$binop
 Tx0109_sub(wire,wire)                       # sub_686_688_689$binop
 Tx010A_mux(wire,const255_255,wire)          # smin_689_690_691$min_mux$mux
-Tx010B_lut88(wire,wire,const0_0)            # lb_p3_cim_stencil_update_stream$valid_andr$_join$lut$lut
-Tx010D_lut55(wire,const0_0,const0_0)        # lb_p3_lxx_stencil_update_stream$valcounter_1$ult$not$lut$lut
+Tx010B_lut88(wire,wire,const0_0)            # lb_pcus$valid_andr$_join$lut$lut
+Tx010D_lut55(wire,const0_0,const0_0)        # lb_plsus$valcounter_1$ult$not$lut$lut
 Tx010E_mux(wire,const255_255,wire)          # smin_661_662_663$min_mux$mux
 Tx0201_add(const0_0,reg)                    # add_704_705_706$binop
 ```
