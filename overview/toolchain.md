@@ -11,7 +11,7 @@ app simply reads an input image, multiplies every pixel in the image by two,
 and emits that as the output image.
 
 
-1. <b>CGRA generator</b> builds a target CGRA
+#### 1. <b>CGRA generator</b> builds a target CGRA
 
 `git clone https://github.com/StanfordAHA/CGRAGenerator`<br/>
 `CGRAGenerator/hardware/generator_z/top/build_cgra.sh`
@@ -22,7 +22,7 @@ Halide front end, which compiles to design-independent intermediate
 form).
 
 
-2. <b>Halide compiler</b> reads your Halide source app code and
+#### 2. <b>Halide compiler</b> reads your Halide source app code and
 produces design-independent CoreIR intermediate code
 
 `git clone https://github.com/jeffsetter/Halide_CoreIR`
@@ -33,7 +33,7 @@ See directory
 to see how this Halide app was set up.
 
 
-3. CoreIR mapper reads design-independent CoreIR and emits target-specific CoreIR
+#### 3. CoreIR mapper reads design-independent CoreIR and emits target-specific CoreIR
 
 `git clone ...`
 `CGRAMapper/bin/cgra-mapper pointwise_design_top.json pointwise_mapped.json`
@@ -42,18 +42,18 @@ to see how this Halide app was set up.
 the cgra_info.xml file...but it should...right?]</i>
 
 
-4. Place-and-route (PNR) turns target-specific CoreIR into CGRA assembly language
+#### 4. Place-and-route (PNR) turns target-specific CoreIR into CGRA assembly language
 
 `...`
 `pnr_flow.sh cgra_info.xml pointwise_mapped.json pointwise_annotated.bsb`
 
 
-5. Assembler ("bsbuilder") turns assembly code into a CGRA configuration bitstream
+#### 5. Assembler ("bsbuilder") turns assembly code into a CGRA configuration bitstream
 
 `git clone https://github.com/StanfordAHA/CGRAGenerator`<br/>
 `CGRAGenerator/bitstream/bsbuilder/bsbuilder.py < pointwise_annotated.bsb > pointwise.bsa`
 
-6. Simulator ("run.csh") runs the app and emits a result for comparison
+#### 6. Simulator ("run.csh") runs the app and emits a result for comparison
 
 `git clone https://github.com/StanfordAHA/CGRAGenerator`<br/>
 
