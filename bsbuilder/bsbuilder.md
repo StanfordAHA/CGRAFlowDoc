@@ -1,25 +1,28 @@
 # Introduction to BSB format
 
-`bsb` (bitstream-builder format) files are emitted by `cgra_pnr` and
-serpent (an alternative brute-force/greedy PnR tool). `bsb` files are
-used by the `bsbuilder` tool to produce CGRA configuration bitstreams.
-There are several sections in the `bsb` files:
+`bsb` (bitstream-builder format) files are emitted by `cgra_pnr.`
+`bsb` files are used by the `bsbuilder` tool to produce CGRA
+configuration bitstreams.  In general, like most assembly languages,
+one line of bsb compiles into exactly one CGRA machine instruction
+(or sometimes just a single field within the instruction).
+
+There are several sections in `bsb` files, including
 
 + Placement
 + IO
 + Routing
 
 ## Placement Section
-An example of placement section is shown below:
+An example of the placement section is shown below:
 ```
 Tx0102_add(wire,wire)                       # add_704_707_708$binop
 Tx0105_sle(wire,const255_255)               # smin_689_690_691$scomp$compop
-Tx0106_uge(const59_59,wire)                 # lb_p3_cim_stencil_update_stream$valcounter_1$ult$comp$compop
+Tx0106_uge(const59_59,wire)                 # lb_pcus$valcounter_1$ult$comp$compop
 Tx0107_add(wire,wire)                       # add_762_763_764$binop
 Tx0109_sub(wire,wire)                       # sub_686_688_689$binop
 Tx010A_mux(wire,const255_255,wire)          # smin_689_690_691$min_mux$mux
-Tx010B_lut88(wire,wire,const0_0)            # lb_p3_cim_stencil_update_stream$valid_andr$_join$lut$lut
-Tx010D_lut55(wire,const0_0,const0_0)        # lb_p3_lxx_stencil_update_stream$valcounter_1$ult$not$lut$lut
+Tx010B_lut88(wire,wire,const0_0)            # lb_pcus$valid_andr$_join$lut$lut
+Tx010D_lut55(wire,const0_0,const0_0)        # lb_plsus$valcounter_1$ult$not$lut$lut
 Tx010E_mux(wire,const255_255,wire)          # smin_661_662_663$min_mux$mux
 Tx0201_add(const0_0,reg)                    # add_704_705_706$binop
 ```
@@ -148,9 +151,9 @@ This is where the MST branch splits.
 
 ## Usage
 You can find `bsbuilder.py` in `CGRAGenerator/bitstream/bsbuilder/`. To build
-annotated bitstream, simply do
+an annotated bitstream, simply do
 ```
 $ python bsbuilder.py cgra_info.txt < input.bsb > output.bsa
 ```
-where `cgra_info.txt` is built by the CGRAgenerator and `input.bsb` is the
-`bsb` file built by either `serpent` or `cgra_info`.
+where `cgra_info.txt` is design-specific info created by the
+CGRA generator, and `input.bsb` is the `bsb` file built by `cgra_pnr.`

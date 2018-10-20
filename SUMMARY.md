@@ -1,6 +1,9 @@
 # Summary
 
 * [Introduction](README.md)
+* [Tool Chain Overview](overview/toolchain.md)
+* [CGRA Generator](cgra/cgra-generator.md)
+  * [PE Spec](cgra/pe-spec.md)
 * [Halide](halide/intro.md)
   * [Installation](halide/installation.md)
   * [Usage Instructions](halide/usage.md)
@@ -23,9 +26,5 @@
   * [Bitstream Generation](pnr/bitstream-gen.md)
   * [Analysis](pnr/analysis.md)
   * [Retiming](pnr/retiming.md)
-* [Hardware](hardware/intro.md)
-  * [BSB Format](hardware/bsb-format.md)
-  * [CGRA Generator](hardware/CGRA-Generator.md)
-  * [CGRA Specs](hardware/CGRA-Specs/intro.md)
-    * [Bitstream Specification](hardware/CGRA-Specs/bitstream-spec.md)
-    * [CGRA Processing Element (ALU)](hardware/CGRA-Specs/pe-spec.md)
+* [Assembler (bsbuilder)](bsbuilder/bsbuilder.md)
+    * [Bitstream Specification](bsbuilder/bitstream-spec.md)
