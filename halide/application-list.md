@@ -1,0 +1,53 @@
+# Application List
+
+## Test Cases
+- pointwise
+- conv_1_1
+- conv_1_2
+- conv_1_2_valid
+- conv_2_1
+- conv_2_1_valid
+- conv_3_1
+- conv_3_1_valid
+- conv_3_3
+- conv_bw_valid
+- gaussian
+- conv_chain
+- cascade
+- conv_multi
+- conv_rgb
+- onebit_comp
+- onebit_and
+- onebit_mux
+- onebit_bool
+- abs
+- arith
+- bitwise
+- bool
+- counter
+- eq
+- inout_onebit
+- linebuffer_1d
+- linebuffer_2d
+- scomp
+- ucomp
+- sminmax
+- uminmax
+- sshift
+- ushift
+- ternary
+
+## Applications
+- harris
+- harris_valid
+- fast_corner
+- unsharp
+- demosaic
+- demosaic_harris
+- demosaic_flow
+- stereo
+- camera_pipe
+- canny
+- bilateral_filter
+- optical_flow
+- seedark
