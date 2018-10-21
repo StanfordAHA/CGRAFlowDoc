@@ -39,10 +39,19 @@ Timing and area analysis:
 Call for contribution:
 - [Retiming](retiming.md)
 
+### Prerequisites
+Because the C++ implementation, exposed to Python via `pybind11`, uses lots
+of C++14/17 features, a modern C++ compiler is required.
++ `g++` 7.0 and above
++ `gcc` 7.0 and above.
++ `cmake` 3.0 and above.
++ `Python` 2.7+/3.6+
+
 ### Install
 ```
 $ git clone https://github.com/Kuree/cgra_pnr
 $ make
+$ pip install thunder/
 $ pip install -r requirements.txt
 ```
 
@@ -55,9 +64,10 @@ Usage: ./scripts/pnr_flow.sh [--no-reg-fold] <arch_file> <netlist.json> [<output
     to the same directory as <netlist.json>
 ```
 
-Currently everything is implemented in Python and it is compatible with both
-Python 2 and Python 3. In the near future the core-part of the toolchain will
-be implemented in C++ with Python binding.
+By design, it is compatible with both Python 2 and Python 3. Even though the
+core part is implemented in C++, `setup.py` in the `thunder/` folder will
+automatically detect the Python environment and build Python package
+accordingly.
 
 ### Place for FPGA
 The placer should be able to place various FPGA placement benchmark such as
