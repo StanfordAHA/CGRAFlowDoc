@@ -1,7 +1,7 @@
 # Supported Operations
 ```
 Halide representation                   CoreIR instances
-------------------------------------------------------------
+-----------------------------------------------------------------------------------
 InputParam                              def.input
 Param                                   const (set during configuration)
 _const_                                 const
