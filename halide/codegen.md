@@ -67,7 +67,7 @@ constant is generated each time and stored in a new constant register.
 A load from an array necessitates different memory structure depending
 on how it is performed. These two properties are the indexing (constant/variable)
 and values (constant/variable). Consider,
-```
+```C++
 int read_value = array[index];
 ```
 

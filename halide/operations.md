@@ -1,30 +1,29 @@
 # Supported Operations
-```
-Halide representation                   CoreIR instances
------------------------------------------------------------------------------------
-InputParam                              def.input
-Param                                   const (set during configuration)
-_const_                                 const
-* / +  -                                mul, {a,l}shr, add, sub
-!= ==                                   neq, eq
-<  <=  >  >=                            {u,s}lt, {u,s}le, {u,s}gt, {u,s}ge
-&& || !                                 and, or, not
-&  |  ~ ^                               and, or, not, xor
->> <<                                   {a,l}shr, shl
-select                                  mux
-max  min                                {u,s}max, {u,s}min
-absd, * +                               absd, mad
-for                                     counter
 
-if                                      _enable wire_
-_var load linebuffer stencil_           _input => mxn_
-_var load array_                        _const => muxn_
-
-accelerate                              Create circuit between input
-linebuffer                              Create linebuffer
-RDom                                    Defines input stencil size for linebuffer
-update                                  Gets reduction update handle for unrolling
-unroll                                  Duplicates hardware
-tile                                    Defines linebuffer width
-reorder                                 Defines how data is read from image
-```
+|Halide representation                   |CoreIR instances                          |
+|----------------------------------------|------------------------------------------|
+|`InputParam`                            |`def.input`                               |
+|`Param`                                 |`const` (set during configuration)        |
+|`_const_`                               |`const`                                   |
+|`*` `/` `+` `-`                         |`mul`, `{a,l}shr`, `add`, `sub`           |
+|`!=` `==`                               |`neq`, `eq`                               |
+|`<`  `<=`  `>`  `>=`                    |`{u,s}lt`, `{u,s}le`, `{u,s}gt`, `{u,s}ge`|
+|`&&` <code>&#124;&#124;</code> `!`      |`and`, `or`, `not`                        |
+|`&`  <code>&#124;</code>  `~` `^`       |`and`, `or`, `not`, `xor`                 |
+|`>>` `<<`                               |`{a,l}shr`, `shl`                         |
+|`select`                                |`mux`                                     |
+|`max`  `min`                            |`{u,s}max`, `{u,s}min`                    |
+|`absd`, `*` `+`                         |`absd`, `mad`                             |
+|`for`                                   |`counter`                                 |
+|                                        |                                          |
+|`if`                                    |`_enable wire_`                           |
+|`_var load linebuffer stencil_`         |`_input => mxn_`                          |
+|`_var load array_`                      |`_const => muxn_`                         |
+|                                        |                                          |
+|`accelerate`                            |Create circuit between input              |
+|`linebuffer`                            |Create linebuffer                         |
+|`RDom`                                  |Defines input stencil size for linebuffer |
+|`update`                                |Gets reduction update handle for unrolling|
+|`unroll`                                |Duplicates hardware                       |
+|`tile`                                  |Defines linebuffer width                  |
+|`reorder `                              |Defines how data is read from image       |

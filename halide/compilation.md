@@ -22,7 +22,7 @@ language to a set of loop nests that define the program execution. This
 can be visualized by outputting the `Stmt` before and after each compilation
 stage as seen in the debug statements in `Lower.cpp`. An example is shown
 below:
-```
+```C++
 std::cout << "Lowering before sliding window:\n" << s << '\n';
 std::cout << "Performing sliding window optimization...\n";
 s = sliding_window(s, env);

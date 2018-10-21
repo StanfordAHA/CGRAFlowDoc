@@ -8,7 +8,7 @@ dependencies and how to compile Halide.
 For the Halide_CoreIR repo, generation has three basic targets: `make clean`, 
 `make design_top.json`, and `make out.png`. This will first remove old generated
 files, then create the CoreIR file, and last test the CoreIR.
-```
+```make
 make clean             # remove generated files
      design_top.json   # create CoreIR
      graph.png         # use graphviz to create visualization of circuit 
@@ -22,7 +22,7 @@ updates were meant to separate targets to a series of smaller steps. For
 example, generating the reference CPU output no longer also tests CoreIR.
 the basic steps remain: `make clean`, `make design_top.json`, and `make out.png`.
 In addition, these same targets are duplicated with new target names.
-```
+```make
 make clean             # remove generated files (bin directory)
      generator         # create Halide generator
      design_top.json   # create CoreIR design

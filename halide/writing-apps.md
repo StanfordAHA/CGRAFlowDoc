@@ -13,7 +13,7 @@ from a previous function. Therefore, values for an indexed function are defined
 based on the `x` and `y` coordinate of other functions. This example performs
 hot pixel suppression on Bayer images, where color channels are two pixels away
 in all directions.
-```
+```C++
 Expr max_value = max(max(input(x-2, y), input(x+2, y)),
                  max(input(x, y-2), input(x, y+2)));
 Expr min_value = min(min(input(x-2, y), input(x+2, y)),
@@ -52,7 +52,7 @@ Conditional statements do not translate well into hardware. Therefore, it is
 recommended to use a version of a ternary or switch operator. In Halide, this
 is provided using the `select` statement. This generates a mux in hardware. Below
 shows how a `select` statement can be used for non-maximal suppression.
-```
+```C++
 Expr is_max = in(x, y) > in(x-1, y-1) && in(x, y) > in(x, y-1) &&
     in(x, y) > in(x+1, y-1) && in(x, y) > in(x-1, y) &&
     in(x, y) > in(x+1, y) && in(x, y) > in(x-1, y+1) &&
@@ -67,7 +67,7 @@ are needed or the reduction operator is not defined (such as max), instead
 an array of `Func`s can be used. One
 can preserve the DAG structure while making it more readable using an array of 
 `Func`s.
-```
+```C++
 Func segment;
 Func largest_value[16];
 for (int i=0; i<16; ++i) {
