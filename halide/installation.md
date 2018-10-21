@@ -1,5 +1,5 @@
 # Installation
-Note that this is based on the travis build for Ubunto 14.04LTS as found in .travis.yml.
+Note that this is based on the travis build for Ubuntu 14.04LTS as found in .travis.yml.
 
 ### Install Dependencies
 ```
@@ -7,8 +7,10 @@ Note that this is based on the travis build for Ubunto 14.04LTS as found in .tra
 ```
 
 ### Set needed environment variables
-First set `BUILD_DIR` to wherever LLVM, Clang, and CoreIR will be built. 
+First set `BUILD_DIR` to wherever LLVM, Clang, and CoreIR should be built. 
 ```
+export BUILD_DIR=""
+
 export LLVM_VERSION=3.7.1 
 export BUILD_SYSTEM=MAKE 
 export CXX_=g++-4.9 
@@ -30,13 +32,17 @@ tar xf clang+llvm-${LLVM_VERSION}-x86_64-linux-gnu-ubuntu-14.04.tar.xz
 mv clang+llvm-${LLVM_VERSION}-x86_64-linux-gnu-ubuntu-14.04 ${TRAVIS_BUILD_DIR}/llvm
 ```
 
-### Download codebase
+### Build CoreIR
 ```
-git clone https://github.com/jeffsetter/Halide_CoreIR.git
+cd ${BUILD_DIR}
+git clone https://github.com/rdaly525/coreir.git
+make -C coreir -j
 ```
 
 ### Build Halide compiler
 ```
+cd ${BUILD_DIR}
+git clone https://github.com/jeffsetter/Halide_CoreIR.git
 cd Halide_CoreIR
 make -j
 ```
