@@ -62,24 +62,24 @@ including `eq, ne, cs, cc, mi, pl, vs, vc, hi, ls, ge, lt, gt,` and `le.`
 
 `Bsbuilder` also supports a number of convenient aliases e.g.
 
-<pre>
-    ALIAS['eq'] = 'sub.eq'
+```Python
+ALIAS['eq'] = 'sub.eq'
 
-    ALIAS['gte'] = 'sub.ge'
-    ALIAS['ge']  = 'sub.ge'
+ALIAS['gte'] = 'sub.ge'
+ALIAS['ge']  = 'sub.ge'
 
-    ALIAS['lte'] = 'sub.le'
-    ALIAS['le']  = 'sub.le'
+ALIAS['lte'] = 'sub.le'
+ALIAS['le']  = 'sub.le'
 
-    ALIAS['gt']  = 'sub.gt'
-    ALIAS['lt']  = 'sub.lt'
+ALIAS['gt']  = 'sub.gt'
+ALIAS['lt']  = 'sub.lt'
 
-    ALIAS['max'] = 'gte_max'
-    ALIAS['min'] = 'lte_min'
+ALIAS['max'] = 'gte_max'
+ALIAS['min'] = 'lte_min'
 
-    ALIAS['mul'] = 'mult_0'
-    ALIAS['mux'] = 'sel'
-</pre>
+ALIAS['mul'] = 'mult_0'
+ALIAS['mux'] = 'sel'
+```
 
 
 ## IO Section
