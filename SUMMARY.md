@@ -25,6 +25,7 @@
     * [Global Routing](pnr/global-routing.md)
     * [Detailed Routing](pnr/detailed-routing.md)
   * [Bitstream Generation](pnr/bitstream-gen.md)
+  * [Testing](pnr/testing.md)
   * [Analysis](pnr/analysis.md)
   * [Retiming](pnr/retiming.md)
 * [Assembler (bsbuilder)](bsbuilder/bsbuilder.md)
