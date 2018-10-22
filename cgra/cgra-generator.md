@@ -1,5 +1,5 @@
 CGRA generation should happen *first* in the tool chain as it dictates
-the design information that will be used by all succeeding steps
+the design information (`cgra_info.xml`) that will be used by all succeeding steps
 (except the Halide front end, which compiles to design-independent
 intermediate form).
 
@@ -11,16 +11,16 @@ intermediate form).
 
 ## What it does
 
-The `build_cgra.sh` invokes Genesis2 to build a complete CGRA design
+The `build_cgra.sh` script invokes Genesis2 to build a complete CGRA design
 including SystemVerilog description along with machine-readable
-collateral `cgra_info.xml` containing design-specific parameters for
+collateral file `"cgra_info.xml"` containing design-specific parameters for
 use by tools targeting the design.
 
-Specifically `build_cgra` does the following:
-* locate Genesis2 on the host machine, else install Genesis2 as necessary
-* implement verilator hacks if necessary
-* execute Genesis2 to build the design as elaborated SystemVerilog files in a subdirectory `genesis_verif`
-* where available, uses `xmllint` to perform a sanity check on the generated `cgra_info.xml`
+Specifically, `build_cgra` does the following:
+* locate Genesis2 on the host machine, else install Genesis2 as necessary;
+* implement verilator hacks if necessary;
+* execute Genesis2 to build the design as elaborated SystemVerilog files in a subdirectory `genesis_verif`;
+* where available, uses `xmllint` to do a quick sanity check on the generated `cgra_info.xml`.
 
 #### Verilator hacks
 
