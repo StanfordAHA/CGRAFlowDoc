@@ -1,7 +1,7 @@
-CGRA generation should happen *first* as it dictates the design
-information that will be used by all succeeding steps (except the
-Halide front end, which compiles to design-independent intermediate
-form).
+CGRA generation should happen *first* in the tool chain as it dictates
+the design information that will be used by all succeeding steps
+(except the Halide front end, which compiles to design-independent
+intermediate form).
 
 ## Usage
 ```

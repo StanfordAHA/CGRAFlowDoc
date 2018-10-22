@@ -34,7 +34,7 @@ to see how this Halide app was set up.
 
 <b>3. CoreIR mapper</b> reads design-independent CoreIR and emits target-specific CoreIR
 ```
-  git clone ...
+  git clone https://github.com/StanfordAHA/CGRAMapper
   CGRAMapper/bin/cgra-mapper pointwise_design_top.json pointwise_mapped.json
 ```
 <i>[Note the mapper does not appear to use CGRA-dependent info from
@@ -43,8 +43,9 @@ the cgra_info.xml file...but it should...right?]</i>
 
 <b>4. Place-and-route (PNR)</b> turns target-specific CoreIR into CGRA assembly language
 ```
-  git clone ...
-  pnr_flow.sh cgra_info.xml pointwise_mapped.json pointwise_annotated.bsb
+  git clone https://github.com/Kuree/cgra_pnr
+  cgra_pnr/coreir_fix/fix_all.sh pointwise_mapped.json pointwise_mapped.json
+  cgra_pnr/scripts/pnr_flow.sh cgra_info.xml pointwise_mapped.json pointwise_annotated.bsb
 ```
 
 <b>5. Assembler ("bsbuilder")</b> turns assembly code into a CGRA configuration bitstream
