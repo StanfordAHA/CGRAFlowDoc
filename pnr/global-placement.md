@@ -7,6 +7,25 @@ placer is a cluster, which is equivalent to the computational kernel. There
 are several ways to compute the kernel and you'll find different
 implementations in different branch, as it's still work in progress.
 
+## Clustering
+To reduce the placement time and improve the placement quality, clustering is
+used in the global placement. `cgra_pnr` uses a novel domain-specific
+clustering algorithm based on `word2vec`. The main idea is to use graph
+embedding to obtain the embedding vector for each instance. Then use the
+embedding vector to partition the instances, as opposed to using standard
+heuristics to calculate netlist affinity.
+
+Here are the steps to obtain the parition:
+1. Use Star expansion to expand the hypergraph into a normal graph.
+2. Use random walk to produce edge file.
+3. Run `word2vec` on the edge file and produce embedding.
+4. Use `k-means` to cluster the instances.
+
+Please note that the clustering algorithm is still a working-in-progress and
+will be changed in the near future. Future version will address better kernel
+discovery as well as efficient parallel training while preserving deterministic
+placement.
+
 ## Slice Placer
 The chip is divided into slices and the basic unit is a single slice. In the
 implementation the slice is called Macroblock, a term derived from video

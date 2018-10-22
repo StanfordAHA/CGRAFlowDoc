@@ -4,7 +4,14 @@ tile: this process is called packing. It aims to reduce the number of nets and
 instances that go through placement and routing, thus decreasing the runtime.
 
 ## Packing Rules:
-Currently the packer performs the following packing rules:
+Although our CGRA is different from a typical FPGA, we can still pack the
+netlist to further reduce the size of netlists and thus improve the PnR result.
+Currently packing is done in `packer` (part of `cgra_pnr`), as opposed to the
+mapper.
+
+Packing is done through multiple passes that modify the underlying netlist.
+Here are the two passes it currently uses:
+
 ### Constant folding
 If a constant only drives **one** net with **one** input port, we will fold the
 constant to the operand register. For instance, if we see something like
@@ -13,6 +20,7 @@ const0_0.out <-> add123.data0
 ```
 we will set the `data0` register to be constant 0. Hence we remove one net from
 the netlist.
+
 ### Register folding
 If a register only drives **one** net with **one** input port, we will put that
 register to the operand register and merge the nets. For instance, if we see
@@ -31,7 +39,20 @@ where `(r)` denotes the operand register.
 If for some reason we don't want to fold registers, such as for debugging
 purpose, we can change a register to an adder where the other operand's
 register will be a constant 0. You can use `--no-reg-folg` in the PnR toolchain
-to specifiy this need.
+to specify this need.
+
+### Extra wire removing
+Because all the current applications do not use certain signals, we can safely
+remove some nets. Those signals will be wired to a constant `1` by `bsbuilder`.
+
+Below is a list of wires removed by this particular pass:
++ `cg_en`
++ `ren`
+
+### Instance renaming
+Although each instance has their unique name in the mapped netlist, their names
+are either too long or doesn't reflect their instance type. A pass can be used
+to rename all instances to internal IDs.
 
 ## Usage:
 ```
@@ -53,7 +74,7 @@ There are several sections in the file:
   which port the const/reg folded to.
 - ID to Names: conversion from the internal block IDs to the instance name
 - Changed to PE: normally empty unless `--no-reg-fold` is used.
-- Netlist Bus: tell you which track the net ueses, either 16-bit or 1-bit.
+- Netlist Bus: tell you which track the net uses, either 16-bit or 1-bit.
 
 ```
 Netlists:

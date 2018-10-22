@@ -69,6 +69,24 @@ core part is implemented in C++, `setup.py` in the `thunder/` folder will
 automatically detect the Python environment and build Python package
 accordingly.
 
+### CoreIR mapper fix scripts
+Currently the mapper has several bugs that do not work with the current hardware
+design. These fix scripts are necessary before the mapper gets fixed. Here is a
+list of scripts that fix the input netlist:
+1. `fix_mux.py`: fix mux `sel` signal because there is a disagreement on mux
+  implementation bewteen the actual PE design and CoreIR.
+2. `fix_const.py`: fix CoreIR Mapper not being able to duplicate constants:
+    - currently it will remove all the formatting in the json file.
+3. `fix_smax.py`: fix op debug string error. The CGRA Mapper will try to use `max`
+instead of `smax` in all cases, which is incorrect.
+
+`coreir_fix/fix_all.sh` is a simple script that fixes all the bugs in the netlist
+file. To see the usage, simply:
+```
+./fix_all.sh
+Usage: ./fix_all.sh <mapped_netlist.json> <fixed_netlist.json>
+```
+
 ### Place for FPGA
 The placer should be able to place various FPGA placement benchmark such as
 VPR. Titan 23, and ISPD. However, because it's not designed to place generic
