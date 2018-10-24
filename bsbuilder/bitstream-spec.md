@@ -1,7 +1,7 @@
 # Bitstream Encoding for CGRA Configuration
 
 The bitstream configuration encoding changes according
-to which specific CGRA design was generated.  See the
+to which specific CGRA design gets generated.  See the
 <a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec">PE
 Spec</a> for details.
 
