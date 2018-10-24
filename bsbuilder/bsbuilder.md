@@ -13,7 +13,8 @@ There are several sections in `bsb` files, including
 + Routing
 
 ## Placement Section
-An example of the placement section is shown below:
+An example of the placement section is shown below.  Note, any text
+following a pound-sign (`#`) is treated as a comment (i.e. it is ignored).
 ```
 Tx0102_add(wire,wire)                       # add_704_707_708$binop
 Tx0105_sle(wire,const255_255)               # smin_689_690_691$scomp$compop
@@ -27,23 +28,24 @@ Tx010E_mux(wire,const255_255,wire)          # smin_661_662_663$min_mux$mux
 Tx0201_add(const0_0,reg)                    # add_704_705_706$binop
 ```
 
-`Tx{TILE_NUM}_{OP}` refers a specific tile with its `TILE_NUM`, which is
-specified in `cgra_info` file. 
-`{OP}` is the opcode for the tile, which is
-given in the input netlist JSON file. `({CONN1}, {CONN2}, {CONN3})` are used
-to describe the connectivity of the tile. Please notice that for binary ops,
-such as `add`, there are only two connections, where as for `mux`, there are
-three wires connected. In `mux`, the last wire is the `sel` signal. If there
-is an constant folded in one of its operands, it will have
-`const{value}_{value}` in lieu of the wire, where `{value}` specifies the
-constant value. If a register is folded to the tile, `reg` will be used in
-stead.
-
-`TILE_NUM` is a 16-bit number where the first and second eight-bit
-quantities respectively indicate the tile's row and column position.
-Also see the 
+The tile number `TILE_NUM` in each `Tx{TILE_NUM}_{OP}` indexes a
+specific tile described in the `cgra_info` file that was produced when
+the CGRA was generated.
+In recent designs, `TILE_NUM` is a 16-bit number where the first and
+second eight-bit quantities respectively indicate the tile's row and
+column position.  Also see the 
 <a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec#tile_number">
 PE Spec</a>.
+
+The opcode `{OP}` in each `Tx{TILE_NUM}_{OP}` designation is given in
+the input netlist JSON file. Operands `({CONN1}, {CONN2}, {CONN3})`
+describe the connectivity of the tile. Please notice that for binary
+ops, such as `add`, there are only two connections, whereas for
+`mux`, there are three wires connected. In `mux`, the last wire is the
+`sel` signal. If there is a constant folded in one of its operands,
+it will have `const{value}_{anystring}` in lieu of the wire, where
+`{value}` specifies the constant value. If a register is folded to the
+tile, `reg` will be used instead.
 
 A list of supported ops can be found in the CGRA 
 <a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec#alu_ops">
