@@ -1,12 +1,16 @@
 # Bitstream Encoding for CGRA Configuration
 
-The actual encoding for the configuration bitstream changes according
-to the specific CGRA design that was generated.  See the
+The bitstream configuration encoding changes according
+to which specific CGRA design was generated.  See the
 <a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec">PE
 Spec</a> for details.
 
-As an example, here is how pointwise multiply-by-two gets encoded for
-a CGRA "shortmem" design:
+As an example, the bitstream below shows how pointwise multiply-by-two gets encoded for
+a CGRA "shortmem" design.  As you can see, only two address-data pairs
+are required for the computation: one to set the constant 'two' and
+one to do the multiplication.  The remaining instruction in the
+bistream are all concerned with routing the data from input pads to
+the multiplier and then out to the output pads.
 
 ```
 % cat $bsb/testdir/examples/pointwise.bsa
