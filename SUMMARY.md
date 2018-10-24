@@ -28,5 +28,5 @@
   * [Testing](pnr/testing.md)
   * [Analysis](pnr/analysis.md)
   * [Retiming](pnr/retiming.md)
-* [Assembler (BsBuilder)](bsbuilder/bsbuilder.md)
+* [Assembler (BSBuilder)](bsbuilder/bsbuilder.md)
     * [Bitstream Specification](bsbuilder/bitstream-spec.md)
