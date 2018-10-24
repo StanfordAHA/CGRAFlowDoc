@@ -5,12 +5,12 @@ to which specific CGRA design gets generated.  See the
 <a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec">PE
 Spec</a> for details.
 
-As an example, the bitstream below shows how pointwise multiply-by-two gets encoded for
-a CGRA "shortmem" design.  As you can see, only two address-data pairs
-are required for the computation: one to set the constant 'two' and
-one to do the multiplication.  The remaining instruction in the
-bistream are all concerned with routing the data from input pads to
-the multiplier and then out to the output pads.
+As an example, the bitstream below shows how pointwise multiply-by-two
+gets encoded for a CGRA "shortmem" design.  As you can see, only the
+first two address-data pairs below are required for the computation:
+one to set the constant "2" and one to do the multiply.  The remaining
+instructions in the bitstream are all concerned with routing data
+from input pads to the multiplier and then out to the output pads.
 
 ```
 % cat $bsb/testdir/examples/pointwise.bsa
