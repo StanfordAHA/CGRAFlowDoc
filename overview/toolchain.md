@@ -65,3 +65,13 @@ the cgra_info.xml file...but it should...right?]</i>
        -delay     0,0 \
        -nclocks    5M`
 ```
+
+#### Notes
+
+For more information you can look at the 
+<a href="https://travis-ci.org/StanfordAHA/CGRAFlow">Travis test</a>
+that runs after every CGRA build.  The test performs several
+end-to-end tests, including compilation from Halide to both x86 and
+CGRA targets, and comparing the x86 vs. CGRA results to verify that
+both got the same answer.
+
