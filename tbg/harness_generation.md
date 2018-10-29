@@ -11,20 +11,19 @@ Stages of harness generation
 
 ## Details
 Generating the harness is divided into the metaprogramming of 11 specific
-program components (**TODO: It would be nice if these linked to the individual
-sections**):
-* includes
-* trace setup (`--trace` only)
-* file setup
-* jtag setup
-* chip init
-* chip reset
-* chip stalling (`--use-jtag` only)
-* running configuration
-* verifying configuration (`--use-jtag` and `--verify-config` only)
-* chip unstalling/reset
-* clock switch (`--use-jtag` only)
-* running test
+program components:
+* [Includes](#includes)
+* [trace setup](#trace-setup) (`--trace` only)
+* [file setup](#file-setup)
+* [jtag setup](#jtag-setup)
+* [chip init](#chip-init)
+* [chip reset](#chip-reset)
+* [chip stalling (`--use-jtag` only)](#chip-stalling---use-jtag-only)
+* [running configuration](#running-configuration)
+* [verifying configuration (`--use-jtag` and `--verify-config` only)](#verifying-configuration---use-jtag-and---verify-config-only)
+* [chip unstalling/reset](#chip-unstallingreset)
+* [clock switch (`--use-jtag` only)](#clock-switch---use-jtag-only)
+* [running test](#running-test)
 
 ### Includes
 This sets up include files used by the harness. All generated test benches will
