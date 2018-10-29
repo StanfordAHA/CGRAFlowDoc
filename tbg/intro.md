@@ -86,7 +86,6 @@ optional arguments:
                         CGRAGenerator/verilator/generator_z_tb/build/*. One
                         way to do this would be through a make clean rule
 ```
-**TODO: Describe usage, show example from CGRAFlow**
 
 ## Example Usage
 ```shell
