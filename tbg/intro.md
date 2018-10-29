@@ -12,3 +12,8 @@ the mapping between inputs/outputs to pads (including the reset pin).
 
 It also includes pre and post processing scripts for input and output files
 for the CGRAFlow integration test bench.
+
+## Pages
+* [Roadmap](tbg/roadmap.md) - Plans for new features and internal changes
+* [Harness Generation](tbg/harness_generation.md) - Overview of how harness
+  are generated

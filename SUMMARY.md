@@ -31,4 +31,5 @@
 * [Assembler (BSBuilder)](bsbuilder/bsbuilder.md)
     * [Bitstream Specification](bsbuilder/bitstream-spec.md)
 * [Test Bench Generator](tbg/intro.md)
+  * [Harness Generation](tbg/harness_generation.md)
   * [Roadmap](tbg/roadmap.md)
