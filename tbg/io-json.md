@@ -1,5 +1,25 @@
-**TODO: Overview of .io.json format**
+# Overview
+The `.io.json` file produced by PnR is used by the Test Bench Generator to map
+input and output files to pads on the chip.  Specifically, it describes a
+mapping from signal to pad, with metadata describing the signals mode ("in",
+"out", or "reset"), and the bit width.
 
+## JSON Schema
+Eventually it would be great to turn this into a concrete schema which could be
+used to validate inputs and create a library for easily constructing these
+files.
+```json
+{
+    "<signal_name>": {
+        "pad_bus" : "<pad_name>",
+        "bits": {
+            "<bit_index>": { "pad_bit":"<bit_index>" }
+        },
+        "mode": "<mode>",
+        "width": <width>
+    }
+}
+```
 
 ## Example
 An example file ([original
@@ -35,5 +55,5 @@ output comes out of `pads_S_0[0]`.
         "mode": "out",
         "width": 1
     }
-    }
+}
 ```
