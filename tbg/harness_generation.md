@@ -100,3 +100,4 @@ the input files, pokes the values onto the input pads specified by the PnR
 collateral, steps the clock, streams the output pad values to the output files,
 and steps the clock.  This loop runs until any of the input file streams close
 (run out of data).
+![Harness Loop](img/harness-loop.svg)
