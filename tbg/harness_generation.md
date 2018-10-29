@@ -49,9 +49,7 @@ step.
 This code handles the opening of `fstream` objects for the input and output
 files specified by the PnR collateral.  The `--input-chunk-size` and
 `--output-chunk-size` parameters specify the size in bits of the data in the
-input and output files (**TODO: It would be nice to generalize this over
-multiple input and output files, or have it specified by some input
-collateral**).
+input and output files.
 
 ### JTAG Setup
 If `--use-jtag` is enabled, the harness includes `jtagdriver.h` which defines
