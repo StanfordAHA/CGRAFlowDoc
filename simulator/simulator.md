@@ -211,11 +211,30 @@ BITSTREAM '/tmp/pointwise_reordered.bs':
 00020101 00000005
 ...
 
-python3 process_input.py io/2in2out.json /tmp/pw_in.raw 0,0
 
-ls -l /tmp/{onebit,output}.raw
--rw-r--r-- 1 steveri users 4096 Oct 31 13:07 /tmp/onebit.raw
--rw-r--r-- 1 steveri users 4096 Oct 31 13:07 /tmp/output.raw
+python3 process_input.py io/2in2out.json /tmp/pw_in.raw 0,0
+    Done resetting
+    Beginning configuration
+    Done configuring
+    Running test
+    Cycle: 1000
+    Cycle: 2000
+    Cycle: 3000
+    Cycle: 4000
+    Reached end of file io16in_in_arg_1_0_0.raw
+    Done testing
+
+python3 $TBG/process_output.py io/2in2out.json /tmp/output.raw pw 0,0
+
+INPUT  od -t u1 /tmp/pw_in.raw
+0000000  95  95  98  89  98 103  95  97  93  92  90  89  84  83  81  82
+0000020  94  91  87  81  96  88  91  86  83  80  91  91  81  83  87  84
+...
+
+OUTPUT od -t u1 /tmp/output.raw
+0000000 190 190 196 178 196 206 190 194 186 184 180 178 168 166 162 164
+0000020 188 182 174 162 192 176 182 172 166 160 182 182 162 166 174 168
+...
 
 ```
 
