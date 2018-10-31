@@ -6,7 +6,7 @@ as actual CGRA hardware would build.
 
 `run_tbg.csh` is the driver for the simulator.  Its main
 purpose is to call the [Test Bench Generator](tbg/intro.md) (TBG).
-Given a ```bsa`` bitstream from the
+Given a `bsa` bitstream from the
 [Assembler](bsbuilder/bsbuilder.md), plus verilog from the [CGRA
 Generator](cgra/cgra-generator.md), TBG builds a custom testbench.
 
