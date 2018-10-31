@@ -83,7 +83,7 @@ TODO explain why/how the design becomes "verilator-friendly"
 `run.csh` is the deprecated older version of `run_tbg.csh.`  It uses a
 handwritten test bench that is compiled per CGRA design, and can then
 be used with any bitstream, as opposed to an automatically generated
-testbench customeized per bitstream as with TBG.
+testbench customized per bitstream as with TBG.
 
 
 
