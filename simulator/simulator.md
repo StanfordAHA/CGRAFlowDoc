@@ -24,7 +24,49 @@ In more detail, `run_tbg.csh` currently does the following:
 * uses generated verilog, plus the bitstream, to build a verilator testbench;
 * runs the testbench on the input image to make an output image.
 
-#### Reordering the bitstream
+### IO configuration
+
+Along with the bitstream, `run_tbg` needs an IO-configuration
+descriptor to set up inputs and outputs, i.e. something that would say
+that the sixteen pads on the north side of the chip are being used as
+a 16-bit input bus.  This configuration file should be supplied by
+whoever created the bitstream, e.g. PNR.
+
+#### Sample IO config file
+
+```
+% less io/2in2out.json
+{
+    "reset_in_pad": {
+        "pad_bus" : "pads_W_0",
+        "bits": {
+            "0": { "pad_bit":"0" }
+        },
+        "mode": "reset",
+        "width": 1
+    },
+    "io16in_in_arg_1_0_0": {
+        "pad_bus" : "pads_N_0",
+        "mode": "in",
+        "width": 16
+    },
+    "io16_out_0_0": {
+        "pad_bus" : "pads_E_0",
+        "mode": "out",
+        "width": 16
+    },
+    "io1_out_0_0": {
+        "pad_bus" : "pads_S_0",
+        "bits": {
+            "0": { "pad_bit":"0" }
+        },
+        "mode": "out",
+        "width": 1
+    }
+}
+```
+
+### Reordering the bitstream
 
 TODO explain why we have to reorder the bitstream!
 
@@ -36,7 +78,7 @@ TODO explain why/how the design is "verilator-friendly"
 * tri-state pads
 
 
-#### run.csh vs. run_tbg.csh
+### run.csh vs. run_tbg.csh
 
 `run.csh` is the deprecated older version of `run_tbg.`  It uses a
 handwritten test bench that is compiled per CGRA design, and can then
@@ -45,7 +87,7 @@ testbench customeized per bitstream as with TBG.
 
 
 
-#### Usage and defaults (--help)
+## Usage and defaults (--help)
 
 ```
 ./run_tbg.csh --help
@@ -87,25 +129,7 @@ Defaults:
 ```
 
 
-#### Example (pointwise)
-
-## Notes
-This is what is currentlyin toolchain overview:
-
-<b>6. Simulator ("run_tbg.csh")</b> runs the app and emits a result for comparison
-```
-  git clone https://github.com/StanfordAHA/CGRAGenerator
-  cd CGRAGenerator/verilator/generator_z_tb; ./run_tbg.csh \
-       -config    <fullpath>/pointwise_pnr_bitstream \
-       -io_config <fullpath>/pointwise_io.json \
-       -input     <fullpath>/pointwise_input.png \
-       -output    <fullpath>/pointwise_CGRA_out.raw \
-       -out1      <fullpath>/pointwise_CGRA_out1.raw \
-       -delay     0,0 \
-       -nclocks    5M
-```
-
-#### Sample run_tbg output
+## Sample run_tbg output
 
 ```
 run_tbg.csh: I think we are in branch 'genspec'
@@ -115,7 +139,7 @@ Running with the following switches:
 ./run_tbg.csh -v \
    -gen \
    -config    ../../bitstream/examples/pointwise.bsa \
-   -io_config /nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/io/2in2out.json \
+   -io_config io/2in2out.json \
    -input     io/conv_bw_in.png \
    -output    /tmp/run.csh.fYN/output.raw \
    -out1      /tmp/run.csh.fYN/onebit.raw \
