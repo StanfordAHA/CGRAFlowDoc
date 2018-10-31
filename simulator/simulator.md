@@ -1,9 +1,8 @@
 # Simulator (run_tbg.csh)
 
-The simulator takes a CGRA bitstream, plus an input image, and produces
-an output image.  The output image is presumably the same as what would be
-produced by running the same bitstream and input on actual CGRA
-hardware.
+The simulator takes a CGRA bitstream, plus an input image, and
+produces an output image.  The output image is supposed to be the same
+as actual CGRA hardware would build.
 
 `run_tbg.csh` is the driver for the simulator.  Its main
 purpose is to call the [Test Bench Generator](tbg/intro.md) (TBG).
@@ -19,8 +18,26 @@ In more detail, `run_tbg.csh` currently does the following:
 * verifies and echoes the current github branch;
 * verifies and echoes essential details of the target CGRA design (i.e. memheight);
 * cleans (removes comments from) and verifies validity of bitstream config file;
-* optionally calls the [CGRA Generator](cgra/cgra-generator.md) to (re)build verilog from scratch
+* optionally calls the [CGRA Generator](cgra/cgra-generator.md) to (re)build verilog from scratch;
+* calls TBG `process_input` script to shape the input image according to DELAY paramater;
+* uses verilator to run the testbench on the input image;
+* calls TBG `process_output` script to shape the output image according to DELAY paramater;
+* compares output file(s) to gold standard file(s)
+* emits PASS (exits normally) or FAIL (exits with error code)
 
+
+
+
+#### run.csh vs. run_tbg.csh
+
+`run.csh` is the deprecated older version of run_tbg.  It uses a
+handwritten test bench that is compiled per CGRA design, and can then
+be used with any bitstream, as opposed to an automatically generated
+testbench customeized per bitstream as with TBG.
+
+
+
+#### Usage and defaults (--help)
 
 ```
 ./run_tbg.csh --help
@@ -46,6 +63,7 @@ Usage:
         -nobuild # no genesis, no verilator build
         -nogen   # no genesis
         -gen     # genesis
+
 Defaults:
     ./run_tbg.csh top_tb.cpp \
        -gen         \
@@ -60,6 +78,8 @@ Defaults:
        -nclocks   1M
 ```
 
+
+#### Example (pointwise)
 
 ## Notes
 This is what is currentlyin toolchain overview:
@@ -76,5 +96,9 @@ This is what is currentlyin toolchain overview:
        -delay     0,0 \
        -nclocks    5M`
 ```
+
+#### Sample run_tbg output
+
+
 
 
