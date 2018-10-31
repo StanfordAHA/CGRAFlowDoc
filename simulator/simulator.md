@@ -20,7 +20,7 @@ In more detail, `run_tbg.csh` currently does the following:
 * cleans (removes comments from) and verifies validity of bitstream config file;
 * reorders the bitstream to prevent lockup;
 * optionally calls the [CGRA Generator](cgra/cgra-generator.md) to (re)build a verilator-friendly verilog from scratch;
-* calls TBG `process_input` script to shape the input image according to DELAY paramater;
+* calls  [TBG](tbg/intro.md) `process_input` script to shape the input image according to DELAY paramater;
 * uses generated verilog, plus the bitstream, to build a verilator testbench;
 * runs the testbench on the input image to make an output image.
 
@@ -38,7 +38,7 @@ TODO explain why/how the design is "verilator-friendly"
 
 #### run.csh vs. run_tbg.csh
 
-`run.csh` is the deprecated older version of run_tbg.  It uses a
+`run.csh` is the deprecated older version of `run_tbg.`  It uses a
 handwritten test bench that is compiled per CGRA design, and can then
 be used with any bitstream, as opposed to an automatically generated
 testbench customeized per bitstream as with TBG.
