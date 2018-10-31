@@ -10,7 +10,7 @@ Given a `bsa` bitstream from the
 [Assembler](bsbuilder/bsbuilder.md), plus verilog from the [CGRA
 Generator](cgra/cgra-generator.md), TBG builds a custom testbench.
 
-Making heavy use of TBG scripts, `run_tbg.csh` invokes the
+Making heavy use of [TBG](tbg/intro.md) scripts, `run_tbg.csh` invokes the
 generated testbench using a given input image, and thereby generates
 the output image and/or other collateral.
 
@@ -73,14 +73,14 @@ TODO explain why we have to reorder the bitstream!
 
 ### Verilator hacks
 
-TODO explain why/how the design is "verilator-friendly"
+TODO explain why/how the design becomes "verilator-friendly"
 * SRAM/JTAG
 * tri-state pads
 
 
 ### run.csh vs. run_tbg.csh
 
-`run.csh` is the deprecated older version of `run_tbg.`  It uses a
+`run.csh` is the deprecated older version of `run_tbg.csh.`  It uses a
 handwritten test bench that is compiled per CGRA design, and can then
 be used with any bitstream, as opposed to an automatically generated
 testbench customeized per bitstream as with TBG.
