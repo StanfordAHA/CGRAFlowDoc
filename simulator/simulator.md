@@ -18,7 +18,9 @@ In more detail, `run_tbg.csh` currently does the following:
 * verifies and echoes the current github branch;
 * verifies and echoes essential details of the target CGRA design (i.e. memheight);
 * cleans (removes comments from) and verifies validity of bitstream config file;
-* reorders the bitstream to prevent lockup;
+* reorders the bitstream to prevent lockup (see
+[here](https://github.com/StanfordAHA/CGRAGenerator/wiki/Bitstream-Encoding#important-note-on-bitstream-ordering)
+and [below]()
 * optionally calls the [CGRA Generator](cgra/cgra-generator.md) to (re)build a verilator-friendly verilog from scratch;
 * calls  [TBG](tbg/intro.md) `process_input` script to shape the input image according to DELAY paramater;
 * uses generated verilog, plus the bitstream, to build a verilator testbench;
@@ -231,7 +233,7 @@ INPUT  od -t u1 /tmp/pw_in.raw
 0000020  94  91  87  81  96  88  91  86  83  80  91  91  81  83  87  84
 ...
 
-OUTPUT od -t u1 /tmp/output.raw
+OUTPUT od -t u1 /tmp/1output.raw
 0000000 190 190 196 178 196 206 190 194 186 184 180 178 168 166 162 164
 0000020 188 182 174 162 192 176 182 172 166 160 182 182 162 166 174 168
 ...
