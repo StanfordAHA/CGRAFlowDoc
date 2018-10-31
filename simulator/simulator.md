@@ -23,6 +23,7 @@ In more detail, `run_tbg.csh` currently does the following:
 * calls  [TBG](tbg/intro.md) `process_input` script to shape the input image according to DELAY paramater;
 * uses generated verilog, plus the bitstream, to build a verilator testbench;
 * runs the testbench on the input image to make an output image.
+* calls  [TBG](tbg/intro.md) `process_output` script to shape the output image according to DELAY paramater;
 
 ### IO configuration
 
