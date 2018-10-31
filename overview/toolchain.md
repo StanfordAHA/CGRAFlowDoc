@@ -53,7 +53,7 @@ the cgra_info.xml file...but it should...right?]</i>
   git clone https://github.com/StanfordAHA/CGRAGenerator
   CGRAGenerator/bitstream/bsbuilder/bsbuilder.py < pointwise_annotated.bsb > pointwise.bsa
 ```
-<b>6. Simulator ("run.csh")</b> runs the app and emits a result for comparison
+<b>6. Simulator ("run_tbg.csh")</b> runs the app and emits a result for comparison
 ```
   git clone https://github.com/StanfordAHA/CGRAGenerator
   cd CGRAGenerator/verilator/generator_z_tb; ./run_tbg.csh \

@@ -30,6 +30,7 @@
   * [Retiming](pnr/retiming.md)
 * [Assembler (BSBuilder)](bsbuilder/bsbuilder.md)
     * [Bitstream Specification](bsbuilder/bitstream-spec.md)
+* Simulator (run_tbg.csh)](simulator/simulator.md)
 * [Test Bench Generator](tbg/intro.md)
   * [Harness Generation](tbg/harness_generation.md) - Overview of how harness
     are generated
