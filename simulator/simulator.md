@@ -33,9 +33,7 @@ Along with the bitstream, `run_tbg` needs an IO-configuration
 descriptor to set up inputs and outputs, i.e. something that would say
 that the sixteen pads on the north side of the chip are being used as
 a 16-bit input bus.  This configuration file should be supplied by
-whoever created the bitstream, e.g. PNR.
-
-#### Sample IO config file
+whoever created the bitstream, e.g. PNR.  Here is a sample IO config file.
 
 ```
 % less io/2in2out.json
