@@ -11,21 +11,29 @@ Given a `bsa` bitstream from the
 Generator](cgra/cgra-generator.md), TBG builds a custom testbench.
 
 Making heavy use of TBG scripts, `run_tbg.csh` invokes the
-generated testbench using a given input image, and compares the
-resulting output image against a given gold standard.
+generated testbench using a given input image, and thereby generates
+the output image and/or other collateral.
 
 In more detail, `run_tbg.csh` currently does the following:
 * verifies and echoes the current github branch;
 * verifies and echoes essential details of the target CGRA design (i.e. memheight);
 * cleans (removes comments from) and verifies validity of bitstream config file;
-* optionally calls the [CGRA Generator](cgra/cgra-generator.md) to (re)build verilog from scratch;
+* reorders the bitstream to prevent lockup;
+* optionally calls the [CGRA Generator](cgra/cgra-generator.md) to (re)build a verilator-friendly verilog from scratch;
 * calls TBG `process_input` script to shape the input image according to DELAY paramater;
-* uses verilator to run the testbench on the input image;
-* calls TBG `process_output` script to shape the output image according to DELAY paramater;
-* compares output file(s) to gold standard file(s)
-* emits PASS (exits normally) or FAIL (exits with error code)
+* uses generated verilog, plus the bitstream, to build a verilator testbench;
+* runs the testbench on the input image to make an output image.
+
+#### Reordering the bitstream
+
+TODO explain why we have to reorder the bitstream!
 
 
+### Verilator hacks
+
+TODO explain why/how the design is "verilator-friendly"
+* SRAM/JTAG
+* tri-state pads
 
 
 #### run.csh vs. run_tbg.csh
@@ -94,11 +102,97 @@ This is what is currentlyin toolchain overview:
        -output    <fullpath>/pointwise_CGRA_out.raw \
        -out1      <fullpath>/pointwise_CGRA_out1.raw \
        -delay     0,0 \
-       -nclocks    5M`
+       -nclocks    5M
 ```
 
 #### Sample run_tbg output
 
+```
+run_tbg.csh: I think we are in branch 'genspec'
+run_tbg.csh: Looks like memtile_height is 1
+
+Running with the following switches:
+./run_tbg.csh -v \
+   -gen \
+   -config    ../../bitstream/examples/pointwise.bsa \
+   -io_config /nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/io/2in2out.json \
+   -input     io/conv_bw_in.png \
+   -output    /tmp/run.csh.fYN/output.raw \
+   -out1      /tmp/run.csh.fYN/onebit.raw \
+   -delay     0,0 \
+   -nclocks    1M
+
+bin/reorder.csh /tmp/pointwise.bs > /tmp/pointwise_reordered.bs
+
+run_tbg.csh: Building CGRA because it's the default...
+run_tbg.csh: ../../hardware/generator_z/top/build_cgra.sh
+./build_cgra.sh WARNING I think we are running from kiwi;
+                setting USE_VERILATOR_HACKS
+
+NOTICE Building shortmem design
+
+--------------------------------------------------------------------
+Here is what I built (it's supposed to look like an array of tiles).
+// mem_tile_height (_GENESIS2_DECLARATION_PRIORITY_) = 1
+
+//CGRA      00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 10 11
+//CGRA   00 .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..
+//CGRA   01 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   02 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   03 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   04 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   05 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   06 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   07 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   08 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   09 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   0A .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   0B .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   0C .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   0D .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   0E .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   0F .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   10 .. p  p  p  m  p  p  p  m  p  p  p  m  p  p  p  m  ..
+//CGRA   11 .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..
+--------------------------------------------------------------------
+
+run_tbg.csh: Building the verilator simulator executable...
+build_simulator_tbg.csh -v \
+  pointwise_reordered.bs 2in2out.json \
+  conv_bw_in.png output.raw 8 8
+
+build_simulator_tbg.csh: Generating the harness
+python3 $dir/generate_harness.py \
+  --pnr-io-collateral io/2in2out.json \
+  --bitstream /tmp/pointwise_reordered.bs \
+  --max-clock-cycles 5000000 \
+  --output-file-name build/harness.cpp \
+  --input-chunk-size 8 --output-chunk-size 8
+
+Building simulator source files...
+verilate.py \
+  --harness harness.cpp          \
+  --verilog-directory ../../hardware/generator_z/top/genesis_verif/   \
+  --output-directory build       \
+  --top-module-name top          \
+
+Found an existing verilator binary, skipping
+
+make -C build -j -f Vtop.mk Vtop
+
+  First prepare input and output files...
+BITSTREAM '/tmp/pointwise_reordered.bs':
+00080101 00200003
+00020101 00000005
+...
+
+python3 process_input.py io/2in2out.json /tmp/pw_in.raw 0,0
+
+ls -l /tmp/{onebit,output}.raw
+-rw-r--r-- 1 steveri users 4096 Oct 31 13:07 /tmp/onebit.raw
+-rw-r--r-- 1 steveri users 4096 Oct 31 13:07 /tmp/output.raw
+
+```
 
 
 
