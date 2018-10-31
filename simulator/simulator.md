@@ -10,7 +10,7 @@ Given a `bsa` bitstream from the
 [Assembler](bsbuilder/bsbuilder.md), plus verilog from the [CGRA
 Generator](cgra/cgra-generator.md), TBG builds a custom testbench.
 
-Again making heavy use of TBG scripts, `run_tbg.csh` invokes the
+Making heavy use of TBG scripts, `run_tbg.csh` invokes the
 generated testbench using a given input image, and compares the
 resulting output image against a given gold standard.
 
