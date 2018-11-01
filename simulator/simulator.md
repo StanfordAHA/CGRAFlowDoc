@@ -33,7 +33,9 @@ Along with the bitstream, `run_tbg` needs an IO-configuration
 descriptor to set up inputs and outputs, i.e. something that would say
 that the sixteen pads on the north side of the chip are being used as
 a 16-bit input bus.  This configuration file should be supplied by
-whoever created the bitstream, e.g. PNR.  Here is a sample IO config file.
+whoever created the bitstream, e.g. PNR.  
+
+Here is a sample IO config file.
 
 ```
 % less io/2in2out.json
@@ -69,7 +71,30 @@ whoever created the bitstream, e.g. PNR.  Here is a sample IO config file.
 
 ### Reordering the bitstream
 
-TODO explain why we have to reorder the bitstream!
+Bitstream configuration order is important!
+
+1. If a LUT is set up as an inverter, it is easy during routing for
+the wires to pass through a state such that the inverter output is
+connected directly to its input, which makes the simulator hang
+forever waiting for the value to stabilize to a 1 or 0 (this has
+actually happened).
+
+2. It's bad if e.g. a linebuffer's write-enable signal `WEN` wiggles off
+and back on again after the linebuffer has been set up, which can
+happen as wires get unconnected and reconnected during the routing
+portion of the bitstream setup. It messes up the internal state of the
+linebuffer and you wind up with e.g. a 7-deep linebuffer instead of
+the 10-deep that you originally configured (this has also happened).
+
+
+So now the rule for configuration is a) do the switchbox and connec-
+tion box wiring FIRST and then b) do the tile setup for LUTs, memories
+(e.g. WEN), ALU ops etc. For this reason I have a csh script 
+`reorder.csh`
+that takes any bitstream config file 'config.bs' and transforms it for
+the proper order (ish).
+
+Also see [here](https://github.com/StanfordAHA/CGRAGenerator/wiki/Bitstream-Encoding#important-note-on-bitstream-ordering).
 
 
 ### Verilator hacks
