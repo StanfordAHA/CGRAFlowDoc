@@ -98,9 +98,18 @@ Also see [here](https://github.com/StanfordAHA/CGRAGenerator/wiki/Bitstream-Enco
 
 ### Verilator hacks
 
-TODO explain why/how the design becomes "verilator-friendly"
-* SRAM/JTAG
-* tri-state pads
+The tapeout version of the chip contains proprietary modules for
+e.g. SRAM and JTAG drivers, plus it has tri-state buffers for the
+programmable IO pads.  Unfortunately, we have not been able to make
+Verilator work with tri-state buffers, and proprietary modules are
+verboten to use where there is no NDA protection (e.g. github
+repositories and/or our development server "kiwi."
+
+Therefore!  When "run_tbg" detects that it is running in a
+non-proprietary environment it makes certain changes to the design:
+
+* each tri-state IO pad is replaced by separate 'input' and 'output' pads
+* proprietary modules (SRAM, JTAG driver) are replaced by handwritten stubs with equivalent functionality
 
 
 ### run.csh vs. run_tbg.csh
@@ -109,7 +118,6 @@ TODO explain why/how the design becomes "verilator-friendly"
 handwritten test bench that is compiled per CGRA design, and can then
 be used with any bitstream, as opposed to an automatically generated
 testbench customized per bitstream as with TBG.
-
 
 
 ## Usage and defaults (--help)
