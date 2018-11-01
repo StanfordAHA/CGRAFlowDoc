@@ -89,7 +89,7 @@ the 10-deep that you originally configured (this has also happened).
 
 So now the rule for configuration is a) do the switchbox and
 connection box wiring FIRST and then b) do the tile setup for LUTs,
-memories (e.g. WEN), ALU ops etc. For this reason I have a csh script
+memories (e.g. WEN), ALU ops etc. For this reason there is a csh script
 `reorder.csh` that takes any bitstream config file 'config.bs' and
 transforms it for the proper order (ish).
 
