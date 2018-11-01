@@ -148,12 +148,12 @@ Defaults:
        -config    ../../bitstream/examples/pw_padring_shortmem.bsa \
        -io_config io/2in2out.json \
        -input     io/conv_bw_in.png  \
-       -output    /tmp/run.csh.IeU/output.raw \
-       -out1          /tmp/run.csh.IeU/onebit.raw \
+       -output    /tmp/output.raw \
+       -out1      /tmp/onebit.raw \
        -delay         0,0 \
        -input-size    8 \
        -output-size   8 \
-       -nclocks   1M
+       -nclocks      1M
 ```
 
 
