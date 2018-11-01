@@ -114,21 +114,16 @@ non-proprietary environment it makes certain changes to the design:
 
 ### run.csh vs. run_tbg.csh
 
-`run.csh` is the deprecated older version of `run_tbg.csh.`  It uses a
-handwritten test bench that is compiled per CGRA design, and can then
-be used with any bitstream, as opposed to an automatically generated
-testbench customized per bitstream as with TBG.
+`run.csh` is the deprecated older version of `run_tbg.csh.` It uses a
+handwritten test bench that is compiled per CGRA design, and which can
+then be used with any bitstream, as opposed to an automatically
+generated testbench customized per bitstream as with TBG.
 
 
 ## Usage and defaults (--help)
 
 ```
 ./run_tbg.csh --help
-run_tbg.csh: I think we are in branch 'genspec'
-
-top.v:
-run.csh: Looks like memtile_height is 1
-
 Usage:
     ./run_tbg.csh <textbench.cpp> -q [-gen | -nogen] [-nobuild]
         -usemem -allreg
