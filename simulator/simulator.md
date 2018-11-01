@@ -146,7 +146,7 @@ Defaults:
     ./run_tbg.csh top_tb.cpp \
        -gen         \
        -config    ../../bitstream/examples/pw_padring_shortmem.bsa \
-       -io_config /nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/io/2in2out.json \
+       -io_config io/2in2out.json \
        -input     io/conv_bw_in.png  \
        -output    /tmp/run.csh.IeU/output.raw \
        -out1          /tmp/run.csh.IeU/onebit.raw \
