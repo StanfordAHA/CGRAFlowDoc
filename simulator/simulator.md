@@ -87,12 +87,11 @@ linebuffer and you wind up with e.g. a 7-deep linebuffer instead of
 the 10-deep that you originally configured (this has also happened).
 
 
-So now the rule for configuration is a) do the switchbox and connec-
-tion box wiring FIRST and then b) do the tile setup for LUTs, memories
-(e.g. WEN), ALU ops etc. For this reason I have a csh script 
-`reorder.csh`
-that takes any bitstream config file 'config.bs' and transforms it for
-the proper order (ish).
+So now the rule for configuration is a) do the switchbox and
+connection box wiring FIRST and then b) do the tile setup for LUTs,
+memories (e.g. WEN), ALU ops etc. For this reason I have a csh script
+`reorder.csh` that takes any bitstream config file 'config.bs' and
+transforms it for the proper order (ish).
 
 Also see [here](https://github.com/StanfordAHA/CGRAGenerator/wiki/Bitstream-Encoding#important-note-on-bitstream-ordering).
 
