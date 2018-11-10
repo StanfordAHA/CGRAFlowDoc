@@ -47,5 +47,8 @@ make -C coreir -j2
 cd ${BUILD_DIR}
 git clone https://github.com/jeffsetter/Halide_CoreIR.git
 cd Halide_CoreIR
+
+# may need to specify full path to coreir
+export COREIR_DIR="/home/<user>/coreir"
 make -j2
 ```
