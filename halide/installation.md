@@ -14,25 +14,25 @@ First set `BUILD_DIR` to wherever LLVM, Clang, and CoreIR should be built.
 ```sh
 export BUILD_DIR="~"
 
-export LLVM_VERSION=3.7.1 
+export LLVM_VERSION=5.0.0
 export BUILD_SYSTEM=MAKE 
-export CXX_=g++-4.9 
-export CC_=gcc-4.9
+export CXX_=g++
+export CC_=gcc
 export CXX=${CXX_}
 export CC=${CC_}
 
 export LLVM_CONFIG=${BUILD_DIR}/llvm/bin/llvm-config
 export CLANG=${BUILD_DIR}/llvm/bin/clang
 
-export COREIRCONFIG="g++-4.9"
+export COREIRCONFIG="g++"
 export COREIR_DIR=${BUILD_DIR}/coreir
 ```
 
-### Install LLVM 3.7 and Clang 3.7
+### Install LLVM 5.0 and Clang 5.0
 ```sh
-wget http://llvm.org/releases/${LLVM_VERSION}/clang+llvm-${LLVM_VERSION}-x86_64-linux-gnu-ubuntu-14.04.tar.xz
-tar xf clang+llvm-${LLVM_VERSION}-x86_64-linux-gnu-ubuntu-14.04.tar.xz
-mv clang+llvm-${LLVM_VERSION}-x86_64-linux-gnu-ubuntu-14.04 ${BUILD_DIR}/llvm
+wget https://releases.llvm.org/${LLVM_VERSION}/clang+llvm-${LLVM_VERSION}-linux-x86_64-ubuntu14.04.tar.xz
+tar xf clang+llvm-${LLVM_VERSION}-linux-x86_64-ubuntu14.04.tar.xz
+mv clang+llvm-${LLVM_VERSION}-linux-x86_64-ubuntu14.04 ${BUILD_DIR}/llvm
 ```
 
 ### Build CoreIR
@@ -45,7 +45,7 @@ make -C coreir -j2
 ### Build Halide compiler
 ```sh
 cd ${BUILD_DIR}
-git clone https://github.com/jeffsetter/Halide_CoreIR.git
+git clone https://github.com/StanfordAHA/Halide-to-Hardware.git
 cd Halide_CoreIR
 
 # may need to specify full path to coreir
