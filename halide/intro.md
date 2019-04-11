@@ -64,10 +64,10 @@ expect the old repo is phasing out soon.
 * Old repo:
   https://github.com/jeffsetter/Halide_CoreIR
 * New repo:
-  https://github.com/jeffsetter/Halide-to-Hardware/tree/coreir_target
+  https://github.com/StanfordAHA/Halide-to-Hardware/
 
 You should be able to compile both of them simply by invoking `make` command
-in the top level folder. Once the Halide compiler is create, a `make all` command
+in the top level folder. Once the Halide compiler is created, a `make all` command
 in the coreir application folder will create the CoreIR files.
 
 ```

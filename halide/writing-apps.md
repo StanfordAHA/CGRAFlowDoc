@@ -24,7 +24,7 @@ denoised(x, y) = clamp(input(x, y), min_value, max_value);
 ```
 
 ## Reduction Domain
-A common pattern used in image processing is convolve an image with filter
+A common pattern used in image processing is convolution of an image with filter
 weights. This can be done using a reduction domain. A single line of code can
 define a sum of products:
 ```C++

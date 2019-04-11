@@ -11,7 +11,7 @@ recomputation, and parallelism using different loop transformations.
 Halide itself is not Turing complete (due to the limited nature of loops).
 To create hardware, one must also limit designs to feed-forward pipelines and
 limit recursion to a bounded depth. However, these limitations are not
-commonly overcome in the image-processing domain, and when creating
+commonly major issues in the image-processing domain, and when creating
 synthesiable hardware.
 
 ## Example: 3x3 convolution using separable filter

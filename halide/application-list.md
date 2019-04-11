@@ -1,7 +1,7 @@
 # Application List
 Below are the current set of test cases and applications. Test cases are smaller
 in size and scope, and should be used to find and isolate bugs in the full system.
-The test cases from abs to ternary are meant to cover all expected operators
+The test cases from `abs` to `ternary` are meant to cover all expected operators
 used in Halide. Applications are larger whose output image are attempting to 
 accomplish some more meaningful task.
 

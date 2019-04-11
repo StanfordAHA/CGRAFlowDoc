@@ -46,7 +46,7 @@ make -C coreir -j2
 ```sh
 cd ${BUILD_DIR}
 git clone https://github.com/StanfordAHA/Halide-to-Hardware.git
-cd Halide_CoreIR
+cd Halide-to-Hardware
 
 # may need to specify full path to coreir
 export COREIR_DIR="/home/<user>/coreir"

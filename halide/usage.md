@@ -4,6 +4,12 @@
 See [Installation](installation.md) section for how to install
 dependencies and how to compile Halide.
 
+## Applications
+The applications can be found for the Halide_CoreIR repo in `apps/coreir_examples` and `apps/coreir_tests`.
+The applications for the Halide-to-Hardware repo exist in `apps/hardware_examples/apps`
+and `apps/hardware_examples/tests` where the distinction is that tests tend to focus
+on a much narrower scope as compared to apps.
+
 ## Make targets
 For the Halide_CoreIR repo, generation has three basic targets: `make clean`, 
 `make design_top.json`, and `make out.png`. This will first remove old generated
@@ -20,20 +26,23 @@ make clean             # remove generated files
 For the Halide-to-Hardware repo, some of the targets were updated. These
 updates were meant to separate targets to a series of smaller steps. For
 example, generating the reference CPU output no longer also tests CoreIR.
-the basic steps remain: `make clean`, `make design_top.json`, and `make out.png`.
-In addition, these same targets are duplicated with new target names.
+the basic steps remain: `make clean`, `make design_top.json`, and `make bin/output_coreir.png`.
+In addition, these same targets are duplicated with new target names. The definition
+of all of these targets can be found in `apps/hardware_benchmarks/hw_support/hardware_targets.mk`.
 ```make
-make clean             # remove generated files (bin directory)
-     generator         # create Halide generator
-     design_top.json   # create CoreIR design
-     design-coreir     # create CoreIR design
-     design-cpu        # create CPU design
-     graph.png         # use graphviz to create visualization of circuit 
-     output.png        # create output file using CPU implementation
-     run-cpu           # create output file using CPU implementation
-     run-coreir        # create output file using CoreIR implementation
-     compare-coreir    # compare CoreIR output file to golden image
-     golden            # update reference CoreIR json file and output image
+make clean               # remove generated files (bin directory)
+     compiler            # compile updates to Halide compiler
+     generator           # create Halide generator
+     bin/design_top.json # create CoreIR design
+     design-coreir       # create CoreIR design
+     design-cpu          # create CPU design
+     bin/graph.png       # use graphviz to create visualization of circuit 
+     bin/output_cpu.png  # create output file using CPU implementation
+     run-cpu             # create output file using CPU implementation
+     bin/output_cpu.png  # create output file using CoreIR implementation
+     run-coreir          # create output file using CoreIR implementation
+     compare-coreir-cpu  # compare CoreIR output file to CPU output image
+     golden              # update reference CoreIR json file and output image
 ```
 
 
@@ -85,5 +94,6 @@ Halide_CoreIR
                     ├── design_top.json        // generated CoreIR design
                     ├── design_top.txt         // generated graphiz representation of CoreIR
                     ├── graph.png              // generated graphiz image of circuit (using 'make graph.png')
-                    └── output.png             // output image created during testing
+                    ├── output_cpu.png         // output image created using CPU implementation
+                    └── output_coreir.png      // output image created during testing; should be equivalent to output_cpu.png
 ```
