@@ -14,7 +14,7 @@ First set `BUILD_DIR` to wherever LLVM, Clang, and CoreIR should be built.
 ```sh
 export BUILD_DIR="~"
 
-export LLVM_VERSION=5.0.0
+export LLVM_VERSION=6.0.0
 export BUILD_SYSTEM=MAKE 
 export CXX_=g++
 export CC_=gcc
@@ -23,12 +23,13 @@ export CC=${CC_}
 
 export LLVM_CONFIG=${BUILD_DIR}/llvm/bin/llvm-config
 export CLANG=${BUILD_DIR}/llvm/bin/clang
+export PATH=${PATH}:${BUILD_DIR}/llvm-6.0.0/bin
 
 export COREIRCONFIG="g++"
 export COREIR_DIR=${BUILD_DIR}/coreir
 ```
 
-### Install LLVM 5.0 and Clang 5.0
+### Install LLVM 6.0 and Clang 6.0
 ```sh
 wget https://releases.llvm.org/${LLVM_VERSION}/clang+llvm-${LLVM_VERSION}-linux-x86_64-ubuntu14.04.tar.xz
 tar xf clang+llvm-${LLVM_VERSION}-linux-x86_64-ubuntu14.04.tar.xz
@@ -38,8 +39,11 @@ mv clang+llvm-${LLVM_VERSION}-linux-x86_64-ubuntu14.04 ${BUILD_DIR}/llvm
 ### Build CoreIR
 ```sh
 cd ${BUILD_DIR}
-git clone https://github.com/rdaly525/coreir.git
-make -C coreir -j2
+git clone https://github.com/rdaly525/coreir.git -b ubuffer
+cd coreir/build
+cmake ..
+make -j2
+cd ${BUILD_DIR}
 ```
 
 ### Build Halide compiler
