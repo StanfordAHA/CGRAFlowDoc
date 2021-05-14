@@ -1,15 +1,27 @@
 # Code Generation
-Following the lowering passes, the HalideIR must be translated into CoreIR.
-The CoreIR codegen extends the functions for generating C code. The codegen
-produces not only the CoreIR json design, but also creates a debugging
-file and a surrounding test harness. The debugging file is structured as
-a C++ file with additional comments. The test harness is the CPU code that
+Following the lowering passes, the HalideIR must be translated into Clockwork.
+The Clockwork codegen extends the functions for generating C code. The codegen
+produces not only the Clockwork memory inputs, but also the CoreIR json for the
+computation kernels, and a surrounding test harness. The test harness is the CPU code that
 is needed to launch the CoreIR design to fully execute the image.
 
-## CoreIR codegen
+## Clockwork codegen
 The basic working of the codegen is that the abstract syntax tree (AST) is
 traversed and the circuit is built up from input to output. Each operator
 in HalideIR have defined actions using `visit` functions, similar to LLVM.
+
+The main function that creates each accelerator is generated when a `_hls_target` is
+found in the AST. These nodes are created based on the `hw_accelerate` scheduling
+calls in the Halide schedule. This triggers `add_kernel()`, which in turn creates
+all necessary files for the accelerator.
+
+The memory stores (Provide in the Halide AST) are the core nodes that generate the
+Clockwork code. Each memory store is associated with zero or more memory loads. To
+connect the store with the loads, a unique computation kernel is created in another file.
+
+## CoreIR codegen
+The CoreIR codegen (`CoreIRCompute.cpp`) is called for each computation kernel.
+The Halide AST is processed to generate all of the operators and connections.
 
 Similar to the C codegen, the variables that have been defined are stored
 in a data structure, and subsequent operators recall these variables. In a
@@ -35,28 +47,7 @@ that are connected to the input/output ports instead of module ports.
 The input and output ports are iteratively stored in a vector before the
 CoreIR module is created. This way, we are able to flexibly create the
 ports for the entire module regardless of how many inputs and outputs,
-and the datatypes of each. Furthermore, based on the target interface, we can
-also conditionally add a reset or valid port to the design.
-
-### Linebuffer
-The linebuffer is defined by parameters extracted during lowering. These
-parameters match with the CoreIR linebuffer parameters. This library
-generates the necessary CoreIR hardware from the input linebuffer parameters.
-Therefore, the Halide compiler is not responsible for doing the wiring
-or instantiation of the registers or rowbuffers for this stage. 
-
-The linebuffer is thus instantiated in the codegen with the inputs connected
-and the output stencil added based on the linebuffer name.
-
-When valid signals are being used, linebuffers are also connected to each 
-other with a linebuffer output valid connected to subsequent linebuffer's
-write enable.
-
-### Counter
-When a `for` loop is encountered, a counter may be needed in the generated
-CoreIR hardware. However, some of the counter are merely the iteration
-loops on the `x` and `y` variables. The loop body is analyzed and only
-if the loop variable is used in the loop body is a counter created.
+and the datatypes of each.
 
 ### Constant
 When any wire is encountered, first the operator is analyzed to determine
@@ -79,8 +70,6 @@ execution. In hardware, we need some indexing logic or a mux. If the values
 of the array are constants, then we have a read-only memory (ROM). 
 The ROM is created and initialized with values, and indexing logic is
 constructed based on the calculation of `index`.
-For ROMs of a small size (fewer than 16 elements), we decide to use registers
-and muxes instead as described below. 
 
 If the array is indexed with a variable, and values of the array are not constant, then a mux must
 be created. Further passes are used to find the possible values of `index`
@@ -93,4 +82,4 @@ This additional file provides the execution for the CPU to launch and feed
 data into the accelerator. This creates the input image (usually with the
 padding that is not expected to be done on the accelerator) and feeds
 the input image one tile at a time (since the input image is likely tiled
-to reduce the linebuffer sizes).
+to reduce the linebuffer sizes). This file is named `clockwork_testscript.cpp`.

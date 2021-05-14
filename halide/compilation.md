@@ -1,12 +1,12 @@
 # Compilation
 With a completed Halide algorithm and schedule, it must now be passed through
-the compiler to generate CoreIR. This modified backend includes all passes
+the compiler to generate Clockwork. This modified backend includes all passes
 from the original compiler, and it adds a couple passes specifically for
 hardware generation. The full set of passes can be found in `src/Lower.cpp`.
 
-The hardware passes added are Linebuffer Extraction to find where and what
-size the linebuffers should be inserted into HalideIR, and Stream Optimization
-to change execution from sequential to simultaneous execution of stages.
+There are several small lowering passes that are unique to hardware for generating
+Clockwork. These passes extract the hardware accelerators, retain n-d memory indexing,
+merge unrolled memories, inline memory constants, and retain BFloat math.
 These are described in more detail in [Hardware Lowering](hardware-lowering.md).
 
 ## HalideIR: Loop Nests

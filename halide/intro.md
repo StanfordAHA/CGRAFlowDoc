@@ -46,11 +46,13 @@ This project extends the available targets to custom-hardware generation. The la
 that is used capture hardware intent is CoreIR. CoreIR's most basic features provide a
 way to create hardware modules (adders, multipliers, muxes) and connections (how to 
 wire them together). Beyond this, there are analysis and transformation passes to modify 
-the circuit. More information can be found in the [CoreIR section](coreir/intro.md).
+the circuit. More information can be found in the [CoreIR section](coreir/intro.md). Instead
+of directly creating CoreIR, the memories are compiled and analyzed by Clockwork.
 
 ## Input and Output
 The input is a Halide application file (with algorithm and schedule) including a target
-to CoreIR. After compilation, a CoreIR json file contains the circuit for the application.
+to Clockwork. After compilation, a pair of files are created: a Clockwork memory file, and
+a CoreIR json file containing the circuits for the computation  kernels of the application.
 In addition, each design also compiles a CPU version of the same application. This CPU version
 is used to take an input image, and produce a golden reference output image. More information
 on usage, as well as which files are generated, can be found in [Usage Instructions](usage.md).
@@ -61,8 +63,6 @@ There are two Halide repo that Jeff is maintaining. Although one of them is
 obsolete, it has most of the applications that the CGRAFlow is testing. We
 expect the old repo is phasing out soon.
 
-* Old repo:
-  https://github.com/jeffsetter/Halide_CoreIR
 * New repo:
   https://github.com/StanfordAHA/Halide-to-Hardware/
 
@@ -71,9 +71,6 @@ in the top level folder. Once the Halide compiler is created, a `make all` comma
 in the coreir application folder will create the CoreIR files.
 
 ```
-cd Halide_CoreIR/apps/coreir_examples/conv_bw
-make all
-
 cd Halide-to-Hardware/apps/hardware_benchmarks/tests/conv_3_3
 make all
 ```

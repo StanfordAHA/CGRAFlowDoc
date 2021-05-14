@@ -1,53 +1,36 @@
 # Hardware Lowering
-There are a pair of lowering passes that are unique to hardware. The current
-implementation uses two custom passes to achieve this; however, in the 
-future some of the more recent analyses might be adopted to perform these
-passes in a more robust fashion.
+There are several small lowering passes that are unique to hardware for generating
+Clockwork. These passes extract the hardware accelerators, retain n-d memory indexing,
+merge unrolled memories, inline memory constants, and retain BFloat math.
 
-## Linebuffer Extraction
-In this pass, the parameters for the linebuffers are lifted from the usage
-of the functions. This analysis must:
-- identify where the user asked for a linebuffer
-- image size (what is the width of the input image)
-- output stencil size (i.e., width and height of the convolution kernel)
-- input pixel rate (how many pixels are inputted each cycle)
+## Hardware Accelerator Extraction
+This pass identifies which functions have been accelerated with the `hw_accelerate()` scheduling
+call. The store loop is saved, and then the HalideIR is modified to denote where the accelerator
+should be produced. A produce node creating `_hls_target.` is created inside the store loop.
+Later, the codegen uses this node to know when to start generating Clockwork code.
 
-The location of a linebuffer is found by matching the loop variables
-annotated by the `accelerate` scheduling primitive when defining the 
-hardware accelerator. By matching the `store_at` and `compute_at` variables,
-we know that the storage can be optimally created as a linebuffer.
+## Multi-dimensional Memory Indexing
+Multi-dimensional loads (calls) and stores (provides) are typically flattened to one-dimensional
+memories. However, the multi-dimensional indexing can be helpful for Clockwork. Therefore,
+the convention we use is that by appending `.stencil` to a function, the memory is not flattened,
+and is recognized as function used in a hardware accelerator.
 
-The image size is identified by Halide's bounded-size analysis pass. This
-pass traces from the output to the desired function to find what footprint
-is needed for the function. This defines the `Func`'s minimum and maximum
-`x` and `y` index. The maximum width is then used to define the linebuffer
-row's width.
+## Unrolled Memory Update Merging
+When a reduction loop is unrolled, typically the updates all occur as different memory
+operations. However, this would produce many updates and small computation kernels for
+Clockwork. Instead, we combine iterative updates from unrolled reduction loops into a single
+computation.
 
-The output stencil size is needed to define how many values are needed on
-each iteration. These values are typically a rectangular region of the image,
-and in hardware must be available on the cycle. This parameter is used to
-control how many registers are created between each rowbuffer. Since a
-rectangular region is expected, the box-touched analysis pass can be used
-to find which pixel indices are used in each cycle. This box should match
-the reduction domain's size for a convolution.
+## Memory Constant Inlining
+Some functions in Halide are created that look like memories, but in Clockwork are easier to
+treat as computation blocks. This is when they are preloaded with values and then only stores
+are performed. They can either be `ROM`s or `CONSTS` based on the nature of the loads and stores.
+When this occurs, they are transformed into computation by removing the `realization` node.
 
-Finally, the input pixel rate defines how many pixels are inserted into
-the linebuffer on each cycle. For every cycle iteration, there are a constant
-number of pixels that are produced. Based on this constant rate, there is
-some overlap of the pixels used from previous iterations, but also some new
-pixels. This pass finds how many new pixels are needed by comparing the
-difference between iteration `x` and iteration `x+1`. The number of pixels
-between these two iterations is expected to be a constant; if not the
-compiler throws an error, since a linebuffer cannot satisfy a varying
-number of input pixels on different cycles.
+## BFloat Math
+The CGRA has BFloat operators, so those are native operations. However, a CPU natively can only
+perform 32 bit floating point operations, so emulation must be done to get bit-exact comparisons
+on the CPU and CGRA outputs. `EmulateFloat16Math.cpp` performs these math conversions to
+ensure the output of each hardware target is consistent. Note that during emulation, each CPU
+BFloat operation instead takes many operations to execute (including casts and shifts).
 
-## Stream Optimization
-With the linebuffers discovered from the previous analysis, the HalideIR 
-must be modified to use these new memories. Arrays are replaced, and indexing
-is replaced with new indices into the linebuffer output stencil.
-
-In addition, the Halide compiler usually produces sequential code for CPU execution.
-However, for hardware, all code segments at the iteration variable execute
-simultaneously. A stream of input pixels and stream of output pixels are
-expected enter and exit the accelerator. The HalideIR is modified to match
-how hardware behaves with streaming operators.

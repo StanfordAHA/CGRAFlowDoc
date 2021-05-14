@@ -84,12 +84,37 @@ A linebuffer is a memory element that has the minimum amount of size to
 store the working set during execution. For example, for 3x3 convolution,
 two rows and 3 pixels are needed from the input image during execution.
 The Halide compiler will insert a linebuffer when specified in the schedule
-with a linebuffer size to match the stencil size of the kernel.
+with a linebuffer size to match the stencil size of the kernel. This is done
+in the schedule with `store_at()`.
 
 ## FIFOs
 When there is convergence of `Func`s in the application, it is necessary that 
 the hardware is constructed with delays through each parts match. When a DAG
 diverges into separate `Func`s, a FIFO is needed when the delays are mismatched
-from different linebuffer sizes. Any difference in linebuffer sizes should
-be accompanied by a FIFO for the input that arrives early, so pixels arrive
-at the same time.
+from different linebuffer sizes. Clockwork should generate these FIFOs properly,
+so the user does not have to do anything.
+
+## Defining Accelerator Bounds
+A hardware accelerator is created using some scheduling calls. The output is defined
+by the function and loop level. Each of the inputs must be denoted as well. An example
+is below, which has inputs `hw_input` and `hw_kernel`, and output `hw_output` with
+loop `xo` being the first loop outside the accelerator.
+```C++
+hw_output.tile(x,y, xo,yo, xi,yi, imgsize, imgsize)
+  .hw_accelerate(xi, xo);
+  
+hw_input.stream_to_accelerator();
+hw_kernel.stream_to_accelerator();
+```
+
+## Generator Parameters
+All of the applications are written as generators. One of the main purposes of this
+is so that similar applications can be encapsulated by a single application. Parameters
+can be used to alter single integers (such as kernel size) or choose different schedules.
+```C++
+    GeneratorParam<int> ksize{"ksize", 3};    // default: 3
+```
+To alter the value during execution, use `HALIDE_GEN_ARGS` with the new value.
+```sh
+make compare HALIDE_GEN_ARGS="ksize=5"
+```

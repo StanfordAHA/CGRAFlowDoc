@@ -18,13 +18,15 @@ synthesiable hardware.
 Below is an example Halide program. Note the absence of loops since they
 are implicit and loop bounds are defined during execution.
 ```C++
-class MyPipeline() {
-  ImageParam input;
-  Func hw_input, blur_x, blur_y, output;
-  Var x, y, xi, yi;
-  std::vector<Arg> args;
+class ConvBlur : public Halide::Generator<ConvBlur> {
+public:
+  Input<Buffer<uint8_t>>  input{"input", 2};
+  Output<Buffer<uint8_t>> output{"output", 2};
 
-  MyPipeline() {
+  Func hw_input, blur_x, blur_y;
+  Var x, y, xi, yi;
+
+  void generate() {
     // The algorithm - no storage or order
     hw_input(x, y) = input(x, y);
     blur_x(x, y) = (hw_input(x-1, y) + hw_input(x, y) + hw_input(x+1, y))/3;
@@ -32,24 +34,23 @@ class MyPipeline() {
     blur_y(x, y) = (blur_x(x, y-1) + blur_x(x, y) + blur_x(x, y+1))/3;
     output(x, y) = blur_y(x, y);
 
-    args.push_back(input);
-  
     // The schedule - defines order, locality; implies storage
-    blur_y.tile(x, y, xi, yi, 64-2, 64-2)
-          .compute_root()
-          .accelerate({hw_input}, xi, xo, {});
+    if (get_target().has_feature(Target::Clockwork)) {
+      Var xi,yi, xo,yo;
+      blur_y.tile(x, y, xo, yo, xi, yi, 64-2, 64-2)
+            .hw_accelerate(xi, xo);
           
-    blur_x.linebuffer();
+      hw_input.stream_to_accelerator();
+      
+    } else {  // schedule to CPU
+      kernel.compute_at(output, x);
+     
+       conv.update()
+         .unroll(r.x)
+         .unroll(r.y);
+    }
   }
-
-  // Compile coreir to file
-  void compile_coreir() {
-    Target coreir_target = get_target_from_environment();
-    output.compile_to_coreir("pipeline_coreir.cpp", args, 
-                             "pipeline_coreir", coreir_target);
-  }
-
-}
+};
 ```
 
 ## Hardware Targets
@@ -57,8 +58,8 @@ Halide is defined to create programs that can be run on a variety of targets,
 including CPU and GPU. With the ability to produce code for CPU, designs can
 run on a CPU to create reference images to verify execution.
 
-Additionally, this work adds CoreIR for a hardware-specific target intended
-to create verilog or mapping to our CGRA. Note that scheduling is interpretted
+Additionally, this work adds Clockwork for a hardware-specific target intended
+to create FPGA code or mapping to our CGRA. Note that scheduling is interpretted
 slightly different for hardware, and different tradeoffs exist. This is explored
 in more depth at [Writing Applications](writing-apps.md).
 
