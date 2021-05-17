@@ -21,8 +21,8 @@ install:
 
 script:
     - cd ${TRAVIS_BUILD_DIR}
-    #- honkit install
-    - honkit build
+    - npx honkit install
+    - npx honkit build
 
 before_deploy:
   #Ensure we are in the right dir
