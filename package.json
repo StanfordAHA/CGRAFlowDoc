@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "gitbook-plugin-mathjax": "https://github.com/algorithm-archivists/plugin-mathjax",
+    "gitbook-plugin-expandable-chapters": "https://github.com/antonselukh/gitbook-plugin-expandable-chapters",
     "honkit": "^3.4.1"
   }
 }
