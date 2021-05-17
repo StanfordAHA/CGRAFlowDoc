@@ -2,5 +2,9 @@
   "scripts": {
     "build": "honkit build",
     "serve": "honkit serve"
+  },
+  "dependencies": {
+    "gitbook-plugin-mathjax": "https://github.com/algorithm-archivists/plugin-mathjax",
+    "honkit": "^3.4.1"
   }
 }
