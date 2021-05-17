@@ -14,14 +14,15 @@ install:
   #- nvm install stable
   #- nvm use stable
   #- npm install
-  - npm install -g gitbook-cli
-  - npm list -g
-  - cd /home/travis/.nvm/versions/node/v16.1.0/lib/node_modules/gitbook-cli && npm install graceful-fs@4.2.0 --save-dev
+  #- npm install -g gitbook-cli
+  #- npm list -g
+  #- cd /home/travis/.nvm/versions/node/v16.1.0/lib/node_modules/gitbook-cli && npm install graceful-fs@4.2.0 --save-dev
+  - npm install honkit --save-dev
 
 script:
     - cd ${TRAVIS_BUILD_DIR}
-    - gitbook install
-    - gitbook build
+    #- honkit install
+    - honkit build
 
 before_deploy:
   #Ensure we are in the right dir
