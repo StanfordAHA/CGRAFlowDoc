@@ -31,7 +31,7 @@ Func blur_3x3(Func input) {
 }
 ```
 
-## Target Architecture: CoreIR
+## Target Architecture: CoreIR and Clockwork
 
 Note that the above box filter schedules to hardware that has a vector unit
 of size 8. This value may not be compatible based on the hardware target.
@@ -59,18 +59,15 @@ on usage, as well as which files are generated, can be found in [Usage Instructi
 
 
 ## Getting Started
-There are two Halide repo that Jeff is maintaining. Although one of them is
-obsolete, it has most of the applications that the CGRAFlow is testing. We
-expect the old repo is phasing out soon.
 
-* New repo:
+* Repo:
   https://github.com/StanfordAHA/Halide-to-Hardware/
 
-You should be able to compile both of them simply by invoking `make` command
+You should be able to compile by simply invoking `make distrib`
 in the top level folder. Once the Halide compiler is created, a `make all` command
-in the coreir application folder will create the CoreIR files.
+in the application folder will create the CoreIR files.
 
-```
+```sh
 cd Halide-to-Hardware/apps/hardware_benchmarks/tests/conv_3_3
 make all
 ```

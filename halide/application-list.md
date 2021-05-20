@@ -43,7 +43,6 @@ https://docs.google.com/spreadsheets/d/1GLqlCGaTXMDLW3QqCXK0XX1zOzP0UyoJ9eXDo75x
 |gaussian           | 3x3 convolution using normalized values                         |
 |cascade            | two back-to-back convolutions                                   |
 |harris             | corner detector                                                                                          |
-|harris_valid       | corner detector with valid output                                                                        |
 |fast_corner        | corner detector using FAST algorithm (sixteen comparisons)                                               |
 |unsharp            | Mask to sharpen the image                                                                                |
 |demosaic           | Applies demosaic to input to create rgb image                                                            |
@@ -55,4 +54,4 @@ https://docs.google.com/spreadsheets/d/1GLqlCGaTXMDLW3QqCXK0XX1zOzP0UyoJ9eXDo75x
 |bilateral_filter   | Perform edge-preserving blur                                                                             |
 |optical_flow       | Pixel movement between two frames                                                                        |
 |seedark            | Algin, warp, and blend underexposed images for low light                                                 |
-
+|resnet_layer_gen   | Create a resnet layer with generator parameters                                                          |

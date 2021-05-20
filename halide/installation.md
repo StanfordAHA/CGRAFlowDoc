@@ -64,7 +64,7 @@ git clone -b new_config https://github.com/joyliu37/BufferMapping
 cd BufferMapping/cfunc && make lib -j2
 ```
 
-# Clone RDAI
+### Clone RDAI
 ```sh
 cd ${BUILD_DIR}
 git clone https://github.com/thenextged/rdai.git

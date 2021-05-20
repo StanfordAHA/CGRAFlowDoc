@@ -32,8 +32,8 @@ make clean                     # remove generated files (bin directory)
 ## Application Folder
 The following is a list of the files that are important for generating
 images and are used further in the flow. The CoreIR json files are created
-for mapping to the CGRA. Also, an output image, out.png, is generated as a 
-the reference image to determine if execution is correct. `out.png` is 
+for mapping to the CGRA. Also, an output image, `output_cpu.png`, is generated as a 
+the reference image to determine if execution is correct. `output_cpu.png` is 
 created using a CPU implementation of Halide, and its output should be
 used for validation during CoreIR interpretation and CGRA simulation.
 
