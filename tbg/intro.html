@@ -1,0 +1,896 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Test Bench Generator · The Ultimate Documentation for CGRAFlow</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="harness_generation.html" />
+    
+    
+    <link rel="prev" href="../simulator/simulator.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../overview/toolchain.html">
+            
+                <a href="../overview/toolchain.html">
+            
+                    
+                    Tool Chain Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cgra/cgra-generator.html">
+            
+                <a href="../cgra/cgra-generator.html">
+            
+                    
+                    CGRA Generator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../cgra/pe-spec.html">
+            
+                <a href="../cgra/pe-spec.html">
+            
+                    
+                    PE Spec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../halide/intro.html">
+            
+                <a href="../halide/intro.html">
+            
+                    
+                    Halide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../halide/installation.html">
+            
+                <a href="../halide/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../halide/usage.html">
+            
+                <a href="../halide/usage.html">
+            
+                    
+                    Usage Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../halide/halide-basics.html">
+            
+                <a href="../halide/halide-basics.html">
+            
+                    
+                    Halide Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../halide/writing-apps.html">
+            
+                <a href="../halide/writing-apps.html">
+            
+                    
+                    Writing Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../halide/operations.html">
+            
+                <a href="../halide/operations.html">
+            
+                    
+                    Supported Operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="../halide/application-list.html">
+            
+                <a href="../halide/application-list.html">
+            
+                    
+                    Application List
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../halide/compilation.html">
+            
+                <a href="../halide/compilation.html">
+            
+                    
+                    Compilation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../halide/hardware-lowering.html">
+            
+                <a href="../halide/hardware-lowering.html">
+            
+                    
+                    Hardware Lowering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../halide/codegen.html">
+            
+                <a href="../halide/codegen.html">
+            
+                    
+                    Code Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../halide/testing.html">
+            
+                <a href="../halide/testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../coreir/intro.html">
+            
+                <a href="../coreir/intro.html">
+            
+                    
+                    CoreIR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../pnr/intro.html">
+            
+                <a href="../pnr/intro.html">
+            
+                    
+                    Place and Route
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../pnr/packing.html">
+            
+                <a href="../pnr/packing.html">
+            
+                    
+                    Packing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../pnr/placement.html">
+            
+                <a href="../pnr/placement.html">
+            
+                    
+                    Placement
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../pnr/global-placement.html">
+            
+                <a href="../pnr/global-placement.html">
+            
+                    
+                    Global Placement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" data-path="../pnr/detailed-placement.html">
+            
+                <a href="../pnr/detailed-placement.html">
+            
+                    
+                    Detailed Placement
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../pnr/routing.html">
+            
+                <a href="../pnr/routing.html">
+            
+                    
+                    Routing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../pnr/global-routing.html">
+            
+                <a href="../pnr/global-routing.html">
+            
+                    
+                    Global Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../pnr/detailed-routing.html">
+            
+                <a href="../pnr/detailed-routing.html">
+            
+                    
+                    Detailed Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../pnr/bitstream-gen.html">
+            
+                <a href="../pnr/bitstream-gen.html">
+            
+                    
+                    Bitstream Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../pnr/testing.html">
+            
+                <a href="../pnr/testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../pnr/analysis.html">
+            
+                <a href="../pnr/analysis.html">
+            
+                    
+                    Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../pnr/retiming.html">
+            
+                <a href="../pnr/retiming.html">
+            
+                    
+                    Retiming
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../bsbuilder/bsbuilder.html">
+            
+                <a href="../bsbuilder/bsbuilder.html">
+            
+                    
+                    Assembler (BSBuilder)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../bsbuilder/bitstream-spec.html">
+            
+                <a href="../bsbuilder/bitstream-spec.html">
+            
+                    
+                    Bitstream Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../simulator/simulator.html">
+            
+                <a href="../simulator/simulator.html">
+            
+                    
+                    Simulator (run_tbg)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    Test Bench Generator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="harness_generation.html">
+            
+                <a href="harness_generation.html">
+            
+                    
+                    Harness Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="io-json.html">
+            
+                <a href="io-json.html">
+            
+                    
+                    .io.json format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="pre_post_processing.html">
+            
+                <a href="pre_post_processing.html">
+            
+                    
+                    Pre/Post Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="roadmap.html">
+            
+                <a href="roadmap.html">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Test Bench Generator</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="introduction-to-the-test-bench-generator">Introduction to the Test Bench Generator</h1>
+<p><em>Repository:</em> <a href="https://github.com/StanfordAHA/TestBenchGenerator" target="_blank">https://github.com/StanfordAHA/TestBenchGenerator</a></p>
+<p>The Test Bench Generator is a Python script that produces a C++ Verilator
+harness for testing the RTL generated by CGRAGenerator.</p>
+<p>The generated harness is specalized to a bitstream, uses file based IO,
+supports tracing (waveforms), and two modes for configuration the CGRA
+(<code>use_jtag</code>).</p>
+<p>The generator relies on IO collateral (<code>.io.json</code>) produced by PnR to specify
+the mapping between inputs/outputs to pads (including the reset pin).</p>
+<p>It also includes pre and post processing scripts for input and output files
+for the CGRAFlow integration test bench.</p>
+<h2 id="help">Help</h2>
+<pre><code class="lang-shell"><span class="hljs-meta">$</span><span class="bash"> python generate_harness.py --<span class="hljs-built_in">help</span></span>
+usage: generate_harness.py [-h] --pnr-io-collateral &lt;collateral_file&gt;.io.json
+                           --bitstream &lt;BITSTREAM_FILE&gt;
+                           [--trace-file TRACE_FILE]
+                           [--max-clock-cycles MAX_CLOCK_CYCLES]
+                           [--wrapper-module-name WRAPPER_MODULE_NAME]
+                           [--chunk-size CHUNK_SIZE]
+                           [--output-file-name OUTPUT_FILE_NAME] [--use-jtag]
+                           [--verify-config] [--trace]
+                           [--trace-file-name TRACE_FILE_NAME] [--quiet]
+
+Test the cgra
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --pnr-io-collateral &lt;collateral_file&gt;.io.json
+                        Collateral file generated by SMT-PNR
+  --bitstream &lt;BITSTREAM_FILE&gt;
+                        Bitstream file containing the CGRA configuration
+  --trace-file TRACE_FILE
+                        Trace file
+  --max-clock-cycles MAX_CLOCK_CYCLES
+                        Max number of clock cyles to run
+  --wrapper-module-name WRAPPER_MODULE_NAME
+                        Name of the wrapper module
+  --chunk-size CHUNK_SIZE
+                        Size in bits of the data in the input/output files
+  --output-file-name OUTPUT_FILE_NAME
+                        Name of the generated harness file
+  --use-jtag            Should this test harness use JTAG to write config
+  --verify-config       Should this test harness read back all the config
+                        after writing
+  --trace               Dump a .vcd using verilator. **NOTE**: If you add the
+                        --trace flag, you must use it both with
+                        generate_harness.py and verilate.py. Also, you must
+                        either use --force-rebuild with verilate.py or be sure
+                        to remove any existing verilator binary, e.g. rm -r
+                        CGRAGenerator/verilator/generator_z_tb/build/*. One
+                        way to do this would be through a make clean rule
+  --trace-file-name TRACE_FILE_NAME
+  --quiet               Silence cycle counter
+<span class="hljs-meta">
+$</span><span class="bash"> python verilate.py --<span class="hljs-built_in">help</span></span>
+usage: verilate.py [-h] [--top-module-name TOP_MODULE_NAME]
+                   [--harness HARNESS] [--verilog-directory VERILOG_DIRECTORY]
+                   [--force-rebuild] [--output-directory OUTPUT_DIRECTORY]
+                   [--trace]
+
+Verilator wrapper
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --top-module-name TOP_MODULE_NAME
+                        Top module name
+  --harness HARNESS     Path to harness file
+  --verilog-directory VERILOG_DIRECTORY
+                        Directory containing verilog files to include in the
+                        verilator command
+  --force-rebuild       Run verilator even if there&apos;s an existing binary
+  --output-directory OUTPUT_DIRECTORY
+                        Directory to place verilator output files
+  --trace               Dump a .vcd using verilator. **NOTE**: If you add the
+                        --trace flag, you must use it both with
+                        generate_harness.py and verilate.py. Also, you must
+                        either use --force-rebuild with verilate.py or be sure
+                        to remove any existing verilator binary, e.g. rm -r
+                        CGRAGenerator/verilator/generator_z_tb/build/*. One
+                        way to do this would be through a make clean rule
+</code></pre>
+<h2 id="example-usage">Example Usage</h2>
+<pre><code class="lang-shell">python generate_harness.py \
+    --pnr-io-collateral tests/conv_bw/conv_bw.io.json \
+    --bitstream tests/conv_bw/conv_bw_pnr_bitstream \
+    --max-clock-cycles 5000000 \
+    --output-file-name build/harness.cpp
+
+python verilate.py \
+    --harness build/harness.cpp \
+    --verilog-directory ../CGRAGenerator/hardware/generator_z/top/genesis_verif/ \
+    --output-directory build \
+    --top-module-name top
+</code></pre>
+<h2 id="pages">Pages</h2>
+<ul>
+<li><a href="tbg/harness_generation.md">Harness Generation</a> - Overview of how harness
+are generated</li>
+<li><a href="tbg/io-json.md">.io.json format</a> - Overview of the file format for
+collateral generated by PnR</li>
+<li><a href="tbg/pre_post_processing.md">Pre/Post Processing</a> - Overview of pre/post processing scripts</li>
+<li><a href="tbg/roadmap.md">Roadmap</a> - Plans for new features and internal changes</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../simulator/simulator.html" class="navigation navigation-prev " aria-label="Previous page: Simulator (run_tbg)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="harness_generation.html" class="navigation navigation-next " aria-label="Next page: Harness Generation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Test Bench Generator","level":"1.9","depth":1,"next":{"title":"Harness Generation","level":"1.9.1","depth":2,"path":"tbg/harness_generation.md","ref":"tbg/harness_generation.md","articles":[]},"previous":{"title":"Simulator (run_tbg)","level":"1.8","depth":1,"path":"simulator/simulator.md","ref":"simulator/simulator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6.1"},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"The Ultimate Documentation for CGRAFlow","gitbook":"*"},"file":{"path":"tbg/intro.md","mtime":"2021-05-20T04:04:15.525Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-05-20T04:04:32.077Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

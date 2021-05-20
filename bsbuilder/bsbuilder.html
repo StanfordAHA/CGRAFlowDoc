@@ -1,0 +1,932 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Assembler (BSBuilder) · The Ultimate Documentation for CGRAFlow</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="bitstream-spec.html" />
+    
+    
+    <link rel="prev" href="../pnr/retiming.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../overview/toolchain.html">
+            
+                <a href="../overview/toolchain.html">
+            
+                    
+                    Tool Chain Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cgra/cgra-generator.html">
+            
+                <a href="../cgra/cgra-generator.html">
+            
+                    
+                    CGRA Generator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../cgra/pe-spec.html">
+            
+                <a href="../cgra/pe-spec.html">
+            
+                    
+                    PE Spec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../halide/intro.html">
+            
+                <a href="../halide/intro.html">
+            
+                    
+                    Halide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../halide/installation.html">
+            
+                <a href="../halide/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../halide/usage.html">
+            
+                <a href="../halide/usage.html">
+            
+                    
+                    Usage Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../halide/halide-basics.html">
+            
+                <a href="../halide/halide-basics.html">
+            
+                    
+                    Halide Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../halide/writing-apps.html">
+            
+                <a href="../halide/writing-apps.html">
+            
+                    
+                    Writing Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../halide/operations.html">
+            
+                <a href="../halide/operations.html">
+            
+                    
+                    Supported Operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="../halide/application-list.html">
+            
+                <a href="../halide/application-list.html">
+            
+                    
+                    Application List
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../halide/compilation.html">
+            
+                <a href="../halide/compilation.html">
+            
+                    
+                    Compilation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../halide/hardware-lowering.html">
+            
+                <a href="../halide/hardware-lowering.html">
+            
+                    
+                    Hardware Lowering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../halide/codegen.html">
+            
+                <a href="../halide/codegen.html">
+            
+                    
+                    Code Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../halide/testing.html">
+            
+                <a href="../halide/testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../coreir/intro.html">
+            
+                <a href="../coreir/intro.html">
+            
+                    
+                    CoreIR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../pnr/intro.html">
+            
+                <a href="../pnr/intro.html">
+            
+                    
+                    Place and Route
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../pnr/packing.html">
+            
+                <a href="../pnr/packing.html">
+            
+                    
+                    Packing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../pnr/placement.html">
+            
+                <a href="../pnr/placement.html">
+            
+                    
+                    Placement
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../pnr/global-placement.html">
+            
+                <a href="../pnr/global-placement.html">
+            
+                    
+                    Global Placement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" data-path="../pnr/detailed-placement.html">
+            
+                <a href="../pnr/detailed-placement.html">
+            
+                    
+                    Detailed Placement
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../pnr/routing.html">
+            
+                <a href="../pnr/routing.html">
+            
+                    
+                    Routing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../pnr/global-routing.html">
+            
+                <a href="../pnr/global-routing.html">
+            
+                    
+                    Global Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../pnr/detailed-routing.html">
+            
+                <a href="../pnr/detailed-routing.html">
+            
+                    
+                    Detailed Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../pnr/bitstream-gen.html">
+            
+                <a href="../pnr/bitstream-gen.html">
+            
+                    
+                    Bitstream Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../pnr/testing.html">
+            
+                <a href="../pnr/testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../pnr/analysis.html">
+            
+                <a href="../pnr/analysis.html">
+            
+                    
+                    Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../pnr/retiming.html">
+            
+                <a href="../pnr/retiming.html">
+            
+                    
+                    Retiming
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="bsbuilder.html">
+            
+                <a href="bsbuilder.html">
+            
+                    
+                    Assembler (BSBuilder)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="bitstream-spec.html">
+            
+                <a href="bitstream-spec.html">
+            
+                    
+                    Bitstream Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../simulator/simulator.html">
+            
+                <a href="../simulator/simulator.html">
+            
+                    
+                    Simulator (run_tbg)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../tbg/intro.html">
+            
+                <a href="../tbg/intro.html">
+            
+                    
+                    Test Bench Generator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../tbg/harness_generation.html">
+            
+                <a href="../tbg/harness_generation.html">
+            
+                    
+                    Harness Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../tbg/io-json.html">
+            
+                <a href="../tbg/io-json.html">
+            
+                    
+                    .io.json format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../tbg/pre_post_processing.html">
+            
+                <a href="../tbg/pre_post_processing.html">
+            
+                    
+                    Pre/Post Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../tbg/roadmap.html">
+            
+                <a href="../tbg/roadmap.html">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Assembler (BSBuilder)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="introduction-to-bsb-format">Introduction to BSB format</h1>
+<p><code>bsb</code> (bitstream-builder format) files are emitted by <code>cgra_pnr.</code>
+<code>bsb</code> files are used by the <code>bsbuilder</code> tool to produce CGRA
+configuration bitstreams.  In general, like most assembly languages,
+one line of bsb compiles into exactly one CGRA machine instruction
+(or sometimes just a single field within the instruction).</p>
+<p>There are several sections in <code>bsb</code> files, including</p>
+<ul>
+<li>Placement</li>
+<li>IO</li>
+<li>Routing</li>
+</ul>
+<h2 id="placement-section">Placement Section</h2>
+<p>An example of the placement section is shown below.  Note, any text
+following a pound-sign (<code>#</code>) is treated as a comment (i.e. it is ignored).</p>
+<pre><code>Tx0102_add(wire,wire)                       # add_704_707_708$binop
+Tx0105_sle(wire,const255_255)               # smin_689_690_691$scomp$compop
+Tx0106_uge(const59_59,wire)                 # lb_pcus$valcounter_1$ult$comp$compop
+Tx0107_add(wire,wire)                       # add_762_763_764$binop
+Tx0109_sub(wire,wire)                       # sub_686_688_689$binop
+Tx010A_mux(wire,const255_255,wire)          # smin_689_690_691$min_mux$mux
+Tx010B_lut88(wire,wire,const0_0)            # lb_pcus$valid_andr$_join$lut$lut
+Tx010D_lut55(wire,const0_0,const0_0)        # lb_plsus$valcounter_1$ult$not$lut$lut
+Tx010E_mux(wire,const255_255,wire)          # smin_661_662_663$min_mux$mux
+Tx0201_add(const0_0,reg)                    # add_704_705_706$binop
+</code></pre><p>The tile number <code>TILE_NUM</code> in each <code>Tx{TILE_NUM}_{OP}</code> indexes a
+specific tile described in the <code>cgra_info</code> file that was produced when
+the CGRA was generated.
+In recent designs, <code>TILE_NUM</code> is a 16-bit number where the first and
+second eight-bit quantities respectively indicate the tile&apos;s row and
+column position.  Also see the 
+<a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec#tile_number" target="_blank">
+PE Spec</a>.</p>
+<p>The opcode <code>{OP}</code> in each <code>Tx{TILE_NUM}_{OP}</code> designation is given in
+the input netlist JSON file. Operands <code>({CONN1}, {CONN2}, {CONN3})</code>
+describe the connectivity of the tile. Please notice that for binary
+ops, such as <code>add</code>, there are only two connections, whereas for
+<code>mux</code>, there are three wires connected. In <code>mux</code>, the last wire is the
+<code>sel</code> signal. If there is a constant folded in one of its operands,
+it will have <code>const{value}_{anystring}</code> in lieu of the wire, where
+<code>{value}</code> specifies the constant value. If a register is folded to the
+tile, <code>reg</code> will be used instead.</p>
+<p>A list of supported ops can be found in the CGRA 
+<a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec#alu_ops" target="_blank">
+PE Spec</a>
+that is auto-generated each time a design is built.  The basic ops include
+<code>add, sub, abs, gte_max, lte_min, sel, mult_0, mult_1, mult_2, rshft,
+lshft, or, and,</code> and <code>xor.</code>
+Each op can be optionally prepended by <code>u</code> or <code>s</code> to indicate signed or unsigned,
+and optionally suffixed by a flag-set operation, e.g. <code>Tx0102_usub.ge</code>
+sets up the tile in row 1, column 2 to do an unsigned subtract and
+then set the GE flag.  Supported flags are found in the
+<a href="https://github.com/StanfordAHA/CGRAGenerator/wiki/PE-Spec#pe_flags" target="_blank">
+PE Spec</a> and are similar to those available in the ARM
+architecture,
+including <code>eq, ne, cs, cc, mi, pl, vs, vc, hi, ls, ge, lt, gt,</code> and <code>le.</code></p>
+<p><code>Bsbuilder</code> also supports a number of convenient aliases e.g.</p>
+<pre><code class="lang-Python">ALIAS[<span class="hljs-string">&apos;eq&apos;</span>] = <span class="hljs-string">&apos;sub.eq&apos;</span>
+
+ALIAS[<span class="hljs-string">&apos;gte&apos;</span>] = <span class="hljs-string">&apos;sub.ge&apos;</span>
+ALIAS[<span class="hljs-string">&apos;ge&apos;</span>]  = <span class="hljs-string">&apos;sub.ge&apos;</span>
+
+ALIAS[<span class="hljs-string">&apos;lte&apos;</span>] = <span class="hljs-string">&apos;sub.le&apos;</span>
+ALIAS[<span class="hljs-string">&apos;le&apos;</span>]  = <span class="hljs-string">&apos;sub.le&apos;</span>
+
+ALIAS[<span class="hljs-string">&apos;gt&apos;</span>]  = <span class="hljs-string">&apos;sub.gt&apos;</span>
+ALIAS[<span class="hljs-string">&apos;lt&apos;</span>]  = <span class="hljs-string">&apos;sub.lt&apos;</span>
+
+ALIAS[<span class="hljs-string">&apos;max&apos;</span>] = <span class="hljs-string">&apos;gte_max&apos;</span>
+ALIAS[<span class="hljs-string">&apos;min&apos;</span>] = <span class="hljs-string">&apos;lte_min&apos;</span>
+
+ALIAS[<span class="hljs-string">&apos;mul&apos;</span>] = <span class="hljs-string">&apos;mult_0&apos;</span>
+ALIAS[<span class="hljs-string">&apos;mux&apos;</span>] = <span class="hljs-string">&apos;sel&apos;</span>
+</code></pre>
+<h2 id="io-section">IO Section</h2>
+<p>Because the CGRA chip has two different width of tracks, i.e. 16-bit and 1bit,
+we need to specify different IO pad information. Below is an example of how
+IO pads are configured to have 16-bit and 1bit input/output.</p>
+<pre><code>Tx1101_pad(out,16)
+Tx1102_pad(out,16)
+Tx1103_pad(out,16)
+Tx1104_pad(out,16)
+Tx1105_pad(out,16)
+Tx1106_pad(out,16)
+Tx1107_pad(out,16)
+Tx1108_pad(out,16)
+Tx1109_pad(out,16)
+Tx110A_pad(out,16)
+Tx110B_pad(out,16)
+Tx110C_pad(out,16)
+Tx110D_pad(out,16)
+Tx110E_pad(out,16)
+Tx110F_pad(out,16)
+Tx1110_pad(out,16)
+Tx0111_pad(in,1)
+</code></pre><h2 id="routing-section">Routing Section</h2>
+<pre><code># net id: e16
+# m273: lb_p3_lyy_stencil_update_stream$lbmem_2_0$cgramem::rdata
+# p269: add_704_709_710$binop::data1
+# r15: lb_p3_lyy_stencil_update_stream$lb1d_2$reg_1::reg
+Tx0C0C_rdata -&gt; Tx0C0C_out_s3t1
+Tx0B0C_in_s1t1 -&gt; Tx0B0C_out_s3t1
+Tx0A0C_in_s1t1 -&gt; Tx0A0C_out_s3t1
+Tx090C_in_s1t1 -&gt; Tx090C_out_s3t1
+Tx080C_in_s1t1 -&gt; Tx080C_out_s3t1
+Tx070C_in_s1t1 -&gt; Tx070C_out_s3t1
+Tx060C_in_s1t1 -&gt; Tx060C_out_s3t1
+Tx050C_in_s1t1 -&gt; Tx050C_out_s3t1
+Tx040C_in_s1t1 -&gt; Tx040C_out_s3t1
+Tx030C_in_s1t1 -&gt; Tx030C_out_s3t1
+Tx020C_in_s1t1 -&gt; Tx020C_out_s2t1
+Tx020B_in_s0t1 -&gt; Tx020B_out_s2t1
+Tx020A_in_s0t1 -&gt; Tx020A_out_s2t1
+Tx0209_in_s0t1 -&gt; Tx0209_out_s2t1
+Tx0208_in_s0t1 -&gt; Tx0208_out_s2t1
+Tx0207_in_s0t1 -&gt; Tx0207_out_s2t1
+Tx0206_in_s0t1 -&gt; Tx0206_out_s2t1
+Tx0205_in_s0t1 -&gt; Tx0205_out_s3t1
+Tx0105_in_s1t1 -&gt; Tx0105_out_s2t1 (r)
+Tx0205_in_s0t1 -&gt; Tx0205_out_s2t1
+Tx0204_in_s0t1 -&gt; Tx0204_out_s2t1
+Tx0203_in_s0t1 -&gt; Tx0203_out_s2t1
+Tx0202_in_s0t1 -&gt; Tx0202_out_s1t1
+Tx0202_out_s1t1 -&gt; Tx0202_data1
+</code></pre><p>Here, <code>in</code> and <code>out</code> indicate it is either the input direction or the output
+direction. <code>s3t0</code> means <code>side 3, track 0</code> where sides <code>(0, 1, 2, 3)</code>
+map to <code>(E, S, W, N)</code> i.e. <code>(right, bottom, left, top)</code>. Please notice that
+<code>Tx0105_out_s2t1 (r)</code> has <code>(r)</code> suffixed. It is because there is a register
+configured in the SB. Also pay an attention to</p>
+<pre><code>Tx0205_in_s0t1 -&gt; Tx0205_out_s3t1
+2Tx0105_in_s1t1 -&gt; Tx0105_out_s2t1 (r)
+2Tx0205_in_s0t1 -&gt; Tx0205_out_s2t1
+</code></pre><p>This is where the MST branch splits.</p>
+<h2 id="usage">Usage</h2>
+<p>You can find <code>bsbuilder.py</code> in <code>CGRAGenerator/bitstream/bsbuilder/</code>. To build
+an annotated bitstream, simply do</p>
+<pre><code>$ python bsbuilder.py cgra_info.txt &lt; input.bsb &gt; output.bsa
+</code></pre><p>where <code>cgra_info.txt</code> is design-specific info created by the
+CGRA generator, and <code>input.bsb</code> is the <code>bsb</code> file built by <code>cgra_pnr.</code></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../pnr/retiming.html" class="navigation navigation-prev " aria-label="Previous page: Retiming">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="bitstream-spec.html" class="navigation navigation-next " aria-label="Next page: Bitstream Specification">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Assembler (BSBuilder)","level":"1.7","depth":1,"next":{"title":"Bitstream Specification","level":"1.7.1","depth":2,"path":"bsbuilder/bitstream-spec.md","ref":"bsbuilder/bitstream-spec.md","articles":[]},"previous":{"title":"Retiming","level":"1.6.7","depth":2,"path":"pnr/retiming.md","ref":"pnr/retiming.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6.1"},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"The Ultimate Documentation for CGRAFlow","gitbook":"*"},"file":{"path":"bsbuilder/bsbuilder.md","mtime":"2021-05-20T04:04:15.521Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-05-20T04:04:32.077Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

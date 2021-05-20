@@ -1,0 +1,863 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Code Generation · The Ultimate Documentation for CGRAFlow</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="testing.html" />
+    
+    
+    <link rel="prev" href="hardware-lowering.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../overview/toolchain.html">
+            
+                <a href="../overview/toolchain.html">
+            
+                    
+                    Tool Chain Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cgra/cgra-generator.html">
+            
+                <a href="../cgra/cgra-generator.html">
+            
+                    
+                    CGRA Generator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../cgra/pe-spec.html">
+            
+                <a href="../cgra/pe-spec.html">
+            
+                    
+                    PE Spec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    Halide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="usage.html">
+            
+                <a href="usage.html">
+            
+                    
+                    Usage Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="halide-basics.html">
+            
+                <a href="halide-basics.html">
+            
+                    
+                    Halide Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="writing-apps.html">
+            
+                <a href="writing-apps.html">
+            
+                    
+                    Writing Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="operations.html">
+            
+                <a href="operations.html">
+            
+                    
+                    Supported Operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="application-list.html">
+            
+                <a href="application-list.html">
+            
+                    
+                    Application List
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="compilation.html">
+            
+                <a href="compilation.html">
+            
+                    
+                    Compilation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="hardware-lowering.html">
+            
+                <a href="hardware-lowering.html">
+            
+                    
+                    Hardware Lowering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4.2" data-path="codegen.html">
+            
+                <a href="codegen.html">
+            
+                    
+                    Code Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="testing.html">
+            
+                <a href="testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../coreir/intro.html">
+            
+                <a href="../coreir/intro.html">
+            
+                    
+                    CoreIR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../pnr/intro.html">
+            
+                <a href="../pnr/intro.html">
+            
+                    
+                    Place and Route
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../pnr/packing.html">
+            
+                <a href="../pnr/packing.html">
+            
+                    
+                    Packing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../pnr/placement.html">
+            
+                <a href="../pnr/placement.html">
+            
+                    
+                    Placement
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../pnr/global-placement.html">
+            
+                <a href="../pnr/global-placement.html">
+            
+                    
+                    Global Placement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" data-path="../pnr/detailed-placement.html">
+            
+                <a href="../pnr/detailed-placement.html">
+            
+                    
+                    Detailed Placement
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../pnr/routing.html">
+            
+                <a href="../pnr/routing.html">
+            
+                    
+                    Routing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../pnr/global-routing.html">
+            
+                <a href="../pnr/global-routing.html">
+            
+                    
+                    Global Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../pnr/detailed-routing.html">
+            
+                <a href="../pnr/detailed-routing.html">
+            
+                    
+                    Detailed Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../pnr/bitstream-gen.html">
+            
+                <a href="../pnr/bitstream-gen.html">
+            
+                    
+                    Bitstream Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../pnr/testing.html">
+            
+                <a href="../pnr/testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../pnr/analysis.html">
+            
+                <a href="../pnr/analysis.html">
+            
+                    
+                    Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../pnr/retiming.html">
+            
+                <a href="../pnr/retiming.html">
+            
+                    
+                    Retiming
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../bsbuilder/bsbuilder.html">
+            
+                <a href="../bsbuilder/bsbuilder.html">
+            
+                    
+                    Assembler (BSBuilder)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../bsbuilder/bitstream-spec.html">
+            
+                <a href="../bsbuilder/bitstream-spec.html">
+            
+                    
+                    Bitstream Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../simulator/simulator.html">
+            
+                <a href="../simulator/simulator.html">
+            
+                    
+                    Simulator (run_tbg)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../tbg/intro.html">
+            
+                <a href="../tbg/intro.html">
+            
+                    
+                    Test Bench Generator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../tbg/harness_generation.html">
+            
+                <a href="../tbg/harness_generation.html">
+            
+                    
+                    Harness Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../tbg/io-json.html">
+            
+                <a href="../tbg/io-json.html">
+            
+                    
+                    .io.json format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../tbg/pre_post_processing.html">
+            
+                <a href="../tbg/pre_post_processing.html">
+            
+                    
+                    Pre/Post Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../tbg/roadmap.html">
+            
+                <a href="../tbg/roadmap.html">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Code Generation</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="code-generation">Code Generation</h1>
+<p>Following the lowering passes, the HalideIR must be translated into Clockwork.
+The Clockwork codegen extends the functions for generating C code. The codegen
+produces not only the Clockwork memory inputs, but also the CoreIR json for the
+computation kernels, and a surrounding test harness. The test harness is the CPU code that
+is needed to launch the CoreIR design to fully execute the image.</p>
+<h2 id="clockwork-codegen">Clockwork codegen</h2>
+<p>The basic working of the codegen is that the abstract syntax tree (AST) is
+traversed and the circuit is built up from input to output. Each operator
+in HalideIR have defined actions using <code>visit</code> functions, similar to LLVM.</p>
+<p>The main function that creates each accelerator is generated when a <code>_hls_target</code> is
+found in the AST. These nodes are created based on the <code>hw_accelerate</code> scheduling
+calls in the Halide schedule. This triggers <code>add_kernel()</code>, which in turn creates
+all necessary files for the accelerator.</p>
+<p>The memory stores (Provide in the Halide AST) are the core nodes that generate the
+Clockwork code. Each memory store is associated with zero or more memory loads. To
+connect the store with the loads, a unique computation kernel is created in another file.</p>
+<h2 id="coreir-codegen">CoreIR codegen</h2>
+<p>The CoreIR codegen (<code>CoreIRCompute.cpp</code>) is called for each computation kernel.
+The Halide AST is processed to generate all of the operators and connections.</p>
+<p>Similar to the C codegen, the variables that have been defined are stored
+in a data structure, and subsequent operators recall these variables. In a
+hardware sense, the wire names are remembered, and new modules use previously
+defined hardware to connect to their inputs, and define a new variable that
+is the output.</p>
+<h3 id="basic-operators">Basic Operators</h3>
+<p>Most basic arithmetic operators (add, multiply, xor, select, abs) follow
+the same codegen procedure.
+For example, <code>a = b + c</code> would be seen in HalideIR as a call to <code>visit(Add *op)</code>.
+The CoreIR codegen would find the wires defined by <code>b</code> and <code>c</code>. Then, in 
+CoreIR a new adder would be created into our CoreIR design. Last, the <code>b</code> and
+<code>c</code> wires would be connected to the adder inputs, and the adder output
+would be stored as <code>c</code>. Most arithmetic operations are quite simple, and
+are treated very similar to the above example.</p>
+<h3 id="design-input-and-output">Design Input and Output</h3>
+<p>The design input and output are defined in the beginning of the design
+creation. These special variables are remembered, since they are wires
+that are connected to the input/output ports instead of module ports.</p>
+<p>The input and output ports are iteratively stored in a vector before the
+CoreIR module is created. This way, we are able to flexibly create the
+ports for the entire module regardless of how many inputs and outputs,
+and the datatypes of each.</p>
+<h3 id="constant">Constant</h3>
+<p>When any wire is encountered, first the operator is analyzed to determine
+if it is a constant. Since we do not want to reuse constants, a new
+constant is generated each time and stored in a new constant register.</p>
+<h3 id="load-from-an-array">Load from an array</h3>
+<p>A load from an array necessitates different memory structure depending
+on how it is performed. These two properties are the indexing (constant/variable)
+and values (constant/variable). Consider,</p>
+<pre><code class="lang-C++"><span class="hljs-keyword">int</span> read_value = array[index];
+</code></pre>
+<p>If <code>index</code> is always the same value, then whatever wire defines that 
+array element can be used.</p>
+<p>If <code>index</code> is a variable, then the output value changes during program 
+execution. In hardware, we need some indexing logic or a mux. If the values
+of the array are constants, then we have a read-only memory (ROM). 
+The ROM is created and initialized with values, and indexing logic is
+constructed based on the calculation of <code>index</code>.</p>
+<p>If the array is indexed with a variable, and values of the array are not constant, then a mux must
+be created. Further passes are used to find the possible values of <code>index</code>
+and wire these array elements to an appropriately sized mux. Note that <code>index</code>
+is never instantiated in hardware (unlike the ROM), and instead <code>index</code>
+manifests in the hardware as connections to different mux inputs.</p>
+<h2 id="test-harness-codegen">Test harness codegen</h2>
+<p>This additional file provides the execution for the CPU to launch and feed
+data into the accelerator. This creates the input image (usually with the
+padding that is not expected to be done on the accelerator) and feeds
+the input image one tile at a time (since the input image is likely tiled
+to reduce the linebuffer sizes). This file is named <code>clockwork_testscript.cpp</code>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="hardware-lowering.html" class="navigation navigation-prev " aria-label="Previous page: Hardware Lowering">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="testing.html" class="navigation navigation-next " aria-label="Next page: Testing">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Code Generation","level":"1.4.4.2","depth":3,"next":{"title":"Testing","level":"1.4.5","depth":2,"path":"halide/testing.md","ref":"halide/testing.md","articles":[]},"previous":{"title":"Hardware Lowering","level":"1.4.4.1","depth":3,"path":"halide/hardware-lowering.md","ref":"halide/hardware-lowering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6.1"},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"The Ultimate Documentation for CGRAFlow","gitbook":"*"},"file":{"path":"halide/codegen.md","mtime":"2021-05-20T04:04:15.521Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-05-20T04:04:32.077Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

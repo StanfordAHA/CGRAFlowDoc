@@ -1,0 +1,895 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Writing Applications · The Ultimate Documentation for CGRAFlow</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="operations.html" />
+    
+    
+    <link rel="prev" href="halide-basics.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../overview/toolchain.html">
+            
+                <a href="../overview/toolchain.html">
+            
+                    
+                    Tool Chain Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cgra/cgra-generator.html">
+            
+                <a href="../cgra/cgra-generator.html">
+            
+                    
+                    CGRA Generator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../cgra/pe-spec.html">
+            
+                <a href="../cgra/pe-spec.html">
+            
+                    
+                    PE Spec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    Halide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="usage.html">
+            
+                <a href="usage.html">
+            
+                    
+                    Usage Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="halide-basics.html">
+            
+                <a href="halide-basics.html">
+            
+                    
+                    Halide Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.3.1" data-path="writing-apps.html">
+            
+                <a href="writing-apps.html">
+            
+                    
+                    Writing Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="operations.html">
+            
+                <a href="operations.html">
+            
+                    
+                    Supported Operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="application-list.html">
+            
+                <a href="application-list.html">
+            
+                    
+                    Application List
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="compilation.html">
+            
+                <a href="compilation.html">
+            
+                    
+                    Compilation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="hardware-lowering.html">
+            
+                <a href="hardware-lowering.html">
+            
+                    
+                    Hardware Lowering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="codegen.html">
+            
+                <a href="codegen.html">
+            
+                    
+                    Code Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="testing.html">
+            
+                <a href="testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../coreir/intro.html">
+            
+                <a href="../coreir/intro.html">
+            
+                    
+                    CoreIR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../pnr/intro.html">
+            
+                <a href="../pnr/intro.html">
+            
+                    
+                    Place and Route
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../pnr/packing.html">
+            
+                <a href="../pnr/packing.html">
+            
+                    
+                    Packing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../pnr/placement.html">
+            
+                <a href="../pnr/placement.html">
+            
+                    
+                    Placement
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../pnr/global-placement.html">
+            
+                <a href="../pnr/global-placement.html">
+            
+                    
+                    Global Placement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" data-path="../pnr/detailed-placement.html">
+            
+                <a href="../pnr/detailed-placement.html">
+            
+                    
+                    Detailed Placement
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../pnr/routing.html">
+            
+                <a href="../pnr/routing.html">
+            
+                    
+                    Routing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../pnr/global-routing.html">
+            
+                <a href="../pnr/global-routing.html">
+            
+                    
+                    Global Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../pnr/detailed-routing.html">
+            
+                <a href="../pnr/detailed-routing.html">
+            
+                    
+                    Detailed Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../pnr/bitstream-gen.html">
+            
+                <a href="../pnr/bitstream-gen.html">
+            
+                    
+                    Bitstream Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../pnr/testing.html">
+            
+                <a href="../pnr/testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../pnr/analysis.html">
+            
+                <a href="../pnr/analysis.html">
+            
+                    
+                    Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../pnr/retiming.html">
+            
+                <a href="../pnr/retiming.html">
+            
+                    
+                    Retiming
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../bsbuilder/bsbuilder.html">
+            
+                <a href="../bsbuilder/bsbuilder.html">
+            
+                    
+                    Assembler (BSBuilder)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../bsbuilder/bitstream-spec.html">
+            
+                <a href="../bsbuilder/bitstream-spec.html">
+            
+                    
+                    Bitstream Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../simulator/simulator.html">
+            
+                <a href="../simulator/simulator.html">
+            
+                    
+                    Simulator (run_tbg)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../tbg/intro.html">
+            
+                <a href="../tbg/intro.html">
+            
+                    
+                    Test Bench Generator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../tbg/harness_generation.html">
+            
+                <a href="../tbg/harness_generation.html">
+            
+                    
+                    Harness Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../tbg/io-json.html">
+            
+                <a href="../tbg/io-json.html">
+            
+                    
+                    .io.json format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../tbg/pre_post_processing.html">
+            
+                <a href="../tbg/pre_post_processing.html">
+            
+                    
+                    Pre/Post Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../tbg/roadmap.html">
+            
+                <a href="../tbg/roadmap.html">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Writing Applications</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="writing-applications">Writing Applications</h1>
+<p>Below are some tips for writing Halide applications and some decisions
+for scheduling to hardware.</p>
+<h2 id="algorithm">Algorithm</h2>
+<p>The algorithm defines the output pixels that are desired in the Halide
+application. All basic C++ operators are overloaded to apply to Halide
+functions. The supported operators are included in <a href="operations.html">Supported Operators</a>.</p>
+<h2 id="indexing">Indexing</h2>
+<p>Image processing applications typically define pixels based on the local pixels
+from a previous function. Therefore, values for an indexed function are defined
+based on the <code>x</code> and <code>y</code> coordinate of other functions. This example performs
+hot pixel suppression on Bayer images, where color channels are two pixels away
+in all directions.</p>
+<pre><code class="lang-C++">Expr max_value = <span class="hljs-built_in">max</span>(<span class="hljs-built_in">max</span>(<span class="hljs-built_in">input</span>(x<span class="hljs-number">-2</span>, y), <span class="hljs-built_in">input</span>(x+<span class="hljs-number">2</span>, y)),
+                 <span class="hljs-built_in">max</span>(<span class="hljs-built_in">input</span>(x, y<span class="hljs-number">-2</span>), <span class="hljs-built_in">input</span>(x, y+<span class="hljs-number">2</span>)));
+Expr min_value = <span class="hljs-built_in">min</span>(<span class="hljs-built_in">min</span>(<span class="hljs-built_in">input</span>(x<span class="hljs-number">-2</span>, y), <span class="hljs-built_in">input</span>(x+<span class="hljs-number">2</span>, y)),
+                 <span class="hljs-built_in">min</span>(<span class="hljs-built_in">input</span>(x, y<span class="hljs-number">-2</span>), <span class="hljs-built_in">input</span>(x, y+<span class="hljs-number">2</span>)));
+
+<span class="hljs-function">Func <span class="hljs-title">denoised</span><span class="hljs-params">(<span class="hljs-string">&quot;denoised&quot;</span>)</span></span>;
+<span class="hljs-built_in">denoised</span>(x, y) = <span class="hljs-built_in">clamp</span>(<span class="hljs-built_in">input</span>(x, y), min_value, max_value);
+</code></pre>
+<h2 id="reduction-domain">Reduction Domain</h2>
+<p>A common pattern used in image processing is convolution of an image with filter
+weights. This can be done using a reduction domain. A single line of code can
+define a sum of products:</p>
+<pre><code class="lang-C++">Func input, kernel, convolution;
+
+<span class="hljs-comment">// Define x and y loops from -1 of length 3</span>
+<span class="hljs-function">RDom <span class="hljs-title">win</span><span class="hljs-params">(<span class="hljs-number">-1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">3</span>)</span></span>;
+
+<span class="hljs-built_in">kernel</span>(x, y) = x + y;
+<span class="hljs-built_in">convolution</span>(x, y) = <span class="hljs-number">0</span>;  <span class="hljs-comment">// set initial value of 0</span>
+<span class="hljs-built_in">convolution</span>(x, y) += <span class="hljs-built_in">input</span>(x + win.x, y + win.y) *
+                     <span class="hljs-built_in">kernel</span>(win.x, win.y);
+</code></pre>
+<p>The default schedule for a reduction domain is to have two loops, but in
+hardware, this would create two counters. We can unroll these loops to
+duplicate the multipliers and adders, and remove the counters.</p>
+<pre><code class="lang-C++">convolution.<span class="hljs-built_in">update</span>(<span class="hljs-number">0</span>)
+           .<span class="hljs-built_in">unroll</span>(win.x).<span class="hljs-built_in">unroll</span>(win.y);
+</code></pre>
+<h2 id="select">Select</h2>
+<p>Conditional statements do not translate well into hardware. Therefore, it is
+recommended to use a version of a ternary or switch operator. In Halide, this
+is provided using the <code>select</code> statement. This generates a mux in hardware. Below
+shows how a <code>select</code> statement can be used for non-maximal suppression.</p>
+<pre><code class="lang-C++">Expr is_max = <span class="hljs-built_in">in</span>(x, y) &gt; <span class="hljs-built_in">in</span>(x<span class="hljs-number">-1</span>, y<span class="hljs-number">-1</span>) &amp;&amp; <span class="hljs-built_in">in</span>(x, y) &gt; <span class="hljs-built_in">in</span>(x, y<span class="hljs-number">-1</span>) &amp;&amp;
+    <span class="hljs-built_in">in</span>(x, y) &gt; <span class="hljs-built_in">in</span>(x+<span class="hljs-number">1</span>, y<span class="hljs-number">-1</span>) &amp;&amp; <span class="hljs-built_in">in</span>(x, y) &gt; <span class="hljs-built_in">in</span>(x<span class="hljs-number">-1</span>, y) &amp;&amp;
+    <span class="hljs-built_in">in</span>(x, y) &gt; <span class="hljs-built_in">in</span>(x+<span class="hljs-number">1</span>, y) &amp;&amp; <span class="hljs-built_in">in</span>(x, y) &gt; <span class="hljs-built_in">in</span>(x<span class="hljs-number">-1</span>, y+<span class="hljs-number">1</span>) &amp;&amp;
+    <span class="hljs-built_in">in</span>(x, y) &gt; <span class="hljs-built_in">in</span>(x, y+<span class="hljs-number">1</span>) &amp;&amp; <span class="hljs-built_in">in</span>(x, y) &gt; <span class="hljs-built_in">in</span>(x+<span class="hljs-number">1</span>, y+<span class="hljs-number">1</span>);
+<span class="hljs-built_in">hw_output</span>(x, y) = <span class="hljs-built_in">select</span>( is_max, <span class="hljs-built_in">in</span>(x, y), <span class="hljs-number">0</span>);
+</code></pre>
+<h2 id="array-of-funcs">Array of Funcs</h2>
+<p>Code can become a bit tedious due to writing all of the indices as above. 
+Normally one would replace these with RDoms, but when intermediate values
+are needed or the reduction operator is not defined (such as max), instead
+an array of <code>Func</code>s can be used. One
+can preserve the DAG structure while making it more readable using an array of 
+<code>Func</code>s.</p>
+<pre><code class="lang-C++">Func segment;
+Func largest_value[<span class="hljs-number">16</span>];
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">16</span>; ++i) {
+  <span class="hljs-keyword">if</span> (i==<span class="hljs-number">0</span>) {
+    largest_value[i](x,y) = <span class="hljs-built_in">segment</span>(x,y,<span class="hljs-number">0</span>);
+  } <span class="hljs-keyword">else</span> {
+    largest_value[i](x,y) = <span class="hljs-built_in">max</span>(<span class="hljs-built_in">segment</span>(x,y,i), largest_value[i<span class="hljs-number">-1</span>](x,y));
+  }
+}
+</code></pre>
+<h2 id="linebuffers">Linebuffers</h2>
+<p>A linebuffer is a memory element that has the minimum amount of size to
+store the working set during execution. For example, for 3x3 convolution,
+two rows and 3 pixels are needed from the input image during execution.
+The Halide compiler will insert a linebuffer when specified in the schedule
+with a linebuffer size to match the stencil size of the kernel. This is done
+in the schedule with <code>store_at()</code>.</p>
+<h2 id="fifos">FIFOs</h2>
+<p>When there is convergence of <code>Func</code>s in the application, it is necessary that 
+the hardware is constructed with delays through each parts match. When a DAG
+diverges into separate <code>Func</code>s, a FIFO is needed when the delays are mismatched
+from different linebuffer sizes. Clockwork should generate these FIFOs properly,
+so the user does not have to do anything.</p>
+<h2 id="defining-accelerator-bounds">Defining Accelerator Bounds</h2>
+<p>A hardware accelerator is created using some scheduling calls. The output is defined
+by the function and loop level. Each of the inputs must be denoted as well. An example
+is below, which has inputs <code>hw_input</code> and <code>hw_kernel</code>, and output <code>hw_output</code> with
+loop <code>xo</code> being the first loop outside the accelerator.</p>
+<pre><code class="lang-C++">hw_output.<span class="hljs-built_in">tile</span>(x,y, xo,yo, xi,yi, imgsize, imgsize)
+  .<span class="hljs-built_in">hw_accelerate</span>(xi, xo);
+
+hw_input.<span class="hljs-built_in">stream_to_accelerator</span>();
+hw_kernel.<span class="hljs-built_in">stream_to_accelerator</span>();
+</code></pre>
+<h2 id="generator-parameters">Generator Parameters</h2>
+<p>All of the applications are written as generators. One of the main purposes of this
+is so that similar applications can be encapsulated by a single application. Parameters
+can be used to alter single integers (such as kernel size) or choose different schedules.</p>
+<pre><code class="lang-C++">    GeneratorParam&lt;<span class="hljs-keyword">int</span>&gt; ksize{<span class="hljs-string">&quot;ksize&quot;</span>, <span class="hljs-number">3</span>};    <span class="hljs-comment">// default: 3</span>
+</code></pre>
+<p>To alter the value during execution, use <code>HALIDE_GEN_ARGS</code> with the new value.</p>
+<pre><code class="lang-sh">make compare HALIDE_GEN_ARGS=<span class="hljs-string">&quot;ksize=5&quot;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="halide-basics.html" class="navigation navigation-prev " aria-label="Previous page: Halide Basics">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="operations.html" class="navigation navigation-next " aria-label="Next page: Supported Operations">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Writing Applications","level":"1.4.3.1","depth":3,"next":{"title":"Supported Operations","level":"1.4.3.2","depth":3,"path":"halide/operations.md","ref":"halide/operations.md","articles":[]},"previous":{"title":"Halide Basics","level":"1.4.3","depth":2,"path":"halide/halide-basics.md","ref":"halide/halide-basics.md","articles":[{"title":"Writing Applications","level":"1.4.3.1","depth":3,"path":"halide/writing-apps.md","ref":"halide/writing-apps.md","articles":[]},{"title":"Supported Operations","level":"1.4.3.2","depth":3,"path":"halide/operations.md","ref":"halide/operations.md","articles":[]},{"title":"Application List","level":"1.4.3.3","depth":3,"path":"halide/application-list.md","ref":"halide/application-list.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6.1"},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"The Ultimate Documentation for CGRAFlow","gitbook":"*"},"file":{"path":"halide/writing-apps.md","mtime":"2021-05-20T04:04:15.521Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-05-20T04:04:32.077Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
