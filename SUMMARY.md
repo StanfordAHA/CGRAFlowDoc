@@ -9,6 +9,7 @@
   * [Usage Instructions](halide/usage.md)
   * [Halide Basics](halide/halide-basics.md)
     * [Writing Applications](halide/writing-apps.md)
+    * [Writing Schedules](halide/writing-schedules.md)
     * [Supported Operations](halide/operations.md)
     * [Application List](halide/application-list.md)
   * [Compilation](halide/compilation.md)

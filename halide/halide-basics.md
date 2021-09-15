@@ -61,7 +61,8 @@ run on a CPU to create reference images to verify execution.
 Additionally, this work adds Clockwork for a hardware-specific target intended
 to create FPGA code or mapping to our CGRA. Note that scheduling is interpretted
 slightly different for hardware, and different tradeoffs exist. This is explored
-in more depth at [Writing Applications](writing-apps.md).
+in more depth at [Writing Applications](writing-apps.md) and
+[Writing Schedules](writing-schedules.md)
 
 
 
