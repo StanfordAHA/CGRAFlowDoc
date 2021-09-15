@@ -4,8 +4,8 @@
     "serve": "honkit serve"
   },
   "dependencies": {
-    "gitbook-plugin-expandable-chapters": "https://github.com/antonselukh/gitbook-plugin-expandable-chapters",
     "gitbook-plugin-mathjax": "https://github.com/algorithm-archivists/plugin-mathjax",
-    "honkit": "^3.6.20"
+    "gitbook-plugin-expandable-chapters": "https://github.com/antonselukh/gitbook-plugin-expandable-chapters",
+    "honkit": "^3.4.1"
   }
 }
