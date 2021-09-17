@@ -286,7 +286,7 @@ if (!(_halide_buffer_is_bounds_query(input.buffer) || _halide_buffer_is_bounds_q
         produce hw_output_global_wrapper.glb.stencil {
           produce _hls_accelerator.hw_output_global_wrapper {
             produce _hls_target.hw_output_global_wrapper {
-<span style="color:blue">
+// This represents the input global buffer
               realize hw_input_global_wrapper.glb.stencil([0, 64], [0, 64]) {
                 produce hw_input_global_wrapper.glb.stencil {
                   for (hw_input_global_wrapper.s0.y, 0, 64) {
@@ -295,8 +295,7 @@ if (!(_halide_buffer_is_bounds_query(input.buffer) || _halide_buffer_is_bounds_q
                     }
                   }
                 }
-</span>
-<span style="color:orange">
+// This section is for the CGRA MEMs and PEs
                 consume hw_input_global_wrapper.glb.stencil {
                   realize hw_output.stencil([0, 62], [0, 62]) {
                     produce hw_output.stencil {
@@ -344,8 +343,7 @@ if (!(_halide_buffer_is_bounds_query(input.buffer) || _halide_buffer_is_bounds_q
                         }
                       }
                     }
-</span>
-<span style="color:blue">
+// This represents the output global buffer
                     consume hw_output.stencil {
                       for (hw_output_global_wrapper.s0.y.yi, 0, 62) {
                         for (hw_output_global_wrapper.s0.x.xi.xi, 0, 62) {
@@ -353,7 +351,6 @@ if (!(_halide_buffer_is_bounds_query(input.buffer) || _halide_buffer_is_bounds_q
                         }
                       }
                     }
-</span>
                   }
                 }
               }
@@ -377,9 +374,9 @@ if (!(_halide_buffer_is_bounds_query(input.buffer) || _halide_buffer_is_bounds_q
 }
 ```
 
-Above is a Gaussian blur with a memory hierarchy targetted for a CGRA. The orange section is
-intended for the CGRA with memories. The blue section is intended for the global buffer inputs
-and outputs. Here you can see the HalideIR in a form that is closer to the C++ implementation.
+Above is a Gaussian blur with a memory hierarchy targetted for a CGRA. The sections are marked based on 
+intention. The loopnest can be analyzed for code intedend for the CGRA with memories as well as global buffer input
+and output. The above is the default printout for  HalideIR in a form that is close to the C++ implementation.
 
 ## Extending the Scheduling Language
 While most of the functionality for the scheduling language exists in Halide, one might find that
