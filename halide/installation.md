@@ -1,5 +1,5 @@
 # Installation
-Note that this is based on the travis build for Ubuntu 14.04LTS as found in .travis.yml.
+Note that this is based on the travis build for Ubuntu as found in .github/workflows/test.yml.
 
 ### Install Dependencies
 ```sh

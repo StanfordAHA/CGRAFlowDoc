@@ -26,7 +26,7 @@ due to the different metrics and contraints on the hardware. For example, a CPU
 and a custom CGRA accelerator have much different memory hierarchy and size, so the
 corresponding tiling will have different sizes.
 
-Each of these schedules usually exist in a if/else if/else block:
+Each of these schedules usually exist in an if/else if/else block:
 ```C++
   if (get_target().has_feature(Target::Clockwork)) {  ...
 ```
@@ -229,17 +229,17 @@ An example of a memory hierarchy using three levels:
 
       Var xii, yii, xio, yio;
       hw_output
-        .tile(x, y, xo, yo, xi, yi, tileWidth, tileHeight);
+        .tile(x, y, xio, yio, xii, yii, tileWidth, tileHeight);
       hw_output.compute_at(hw_output.in(), xo);
 
+      blur.compute_at(hw_output, xio);
+      
       blur_unnormalized.update()
         .unroll(win.x, blockSize)
         .unroll(win.y, blockSize);
-      blur_unnormalized.compute_at(hw_output, xo);
+      blur_unnormalized.compute_at(hw_output, xio);
 
-      blur.compute_at(hw_output, xo);
-
-      hw_input.in().in().compute_at(hw_output, xo); // represents the mem tile
+      hw_input.in().in().compute_at(hw_output, xio); // represents the mem tile
 
       hw_input.in().compute_at(hw_output.in(), xo);
       hw_input.in().store_in(MemoryType::GLB);
@@ -250,8 +250,8 @@ An example of a memory hierarchy using three levels:
 Here you'll notice that the global buffer level at the input and output are labelled using
 `store_in(MemoryType::GLB)`. The accelerator output is the GLB `hw_output.in()` meaning that the
 input GLB, `hw_input.in()` is computed at this same level: `hw_input.in().compute_at(hw_output.in(), xo)`.
-The inner compute on the CGRA has its own tiling (`hw_output.tile()`) as well as its own input
-memory tile that is computed at the CGRA output (`hw_input.in().in().compute_at(hw_output, xo)`).
+The inner compute on the CGRA has its own tiling, `hw_output.tile()`, as well as its own input
+memory tile that is computed at the CGRA output `hw_input.in().in().compute_at(hw_output, xo)`.
 This effectively creates a three level memory hierarchy with the levels: host, GLB, and memory tile.
 
 ## CPU Target Schedules
@@ -266,6 +266,120 @@ There are several places to look to identify whether the schedule is performing 
 modifying `src/Lower.cpp`, one can output the HalideIR at any stage (I recommend especially the final
 stage before codegen). In addition, the generated code (`bin/<app>_memory.cpp` and `bin/<app>_compute.h`)
 can help identify what calls are being created in the hardware.
+
+An example generated loopnest is below:
+```C++
+if (!(_halide_buffer_is_bounds_query(input.buffer) || _halide_buffer_is_bounds_query(output.buffer))) {
+  assert((_halide_buffer_get_type(input.buffer) == (uint32)67585), halide_error_bad_type("Input buffer input", _halide_buffer_get_type(input.buffer), (uint32)67585))
+  ...
+  assert((_halide_buffer_get_host(output.buffer) != reinterpret((void *), (uint64)0)), halide_error_host_is_null("Output buffer output"))
+  realize hw_input.stencil([0, 64], [0, 64]) {
+    produce hw_input.stencil {
+      for (hw_input.s0.y, 0, 64) {
+        for (hw_input.s0.x, 0, 64) {
+          hw_input.stencil(hw_input.s0.x, hw_input.s0.y) = uint16(input[(((_halide_buffer_get_stride(input.buffer, 1)*hw_input.s0.y) - (_halide_buffer_get_min(input.buffer, 0) + (_halide_buffer_get_min(input.buffer, 1)*_halide_buffer_get_stride(input.buffer, 1)))) + hw_input.s0.x)])
+        }
+      }
+    }
+    consume hw_input.stencil {
+      realize hw_output_global_wrapper.glb.stencil([0, 62], [0, 62]) {
+        produce hw_output_global_wrapper.glb.stencil {
+          produce _hls_accelerator.hw_output_global_wrapper {
+            produce _hls_target.hw_output_global_wrapper {
+<span style="color:blue">
+              realize hw_input_global_wrapper.glb.stencil([0, 64], [0, 64]) {
+                produce hw_input_global_wrapper.glb.stencil {
+                  for (hw_input_global_wrapper.s0.y, 0, 64) {
+                    for (hw_input_global_wrapper.s0.x.x, 0, 64) {
+                      hw_input_global_wrapper.glb.stencil(hw_input_global_wrapper.s0.x.x, hw_input_global_wrapper.s0.y) = hw_input.stencil(hw_input_global_wrapper.s0.x.x, hw_input_global_wrapper.s0.y)
+                    }
+                  }
+                }
+</span>
+<span style="color:orange">
+                consume hw_input_global_wrapper.glb.stencil {
+                  realize hw_output.stencil([0, 62], [0, 62]) {
+                    produce hw_output.stencil {
+                      realize hw_input_global_wrapper_global_wrapper.stencil([0, 64], [0, 64]) {
+                        produce hw_input_global_wrapper_global_wrapper.stencil {
+                          for (hw_input_global_wrapper_global_wrapper.s0.y, 0, 64) {
+                            for (hw_input_global_wrapper_global_wrapper.s0.x.x, 0, 64) {
+                              hw_input_global_wrapper_global_wrapper.stencil(hw_input_global_wrapper_global_wrapper.s0.x.x, hw_input_global_wrapper_global_wrapper.s0.y) = hw_input_global_wrapper.glb.stencil(hw_input_global_wrapper_global_wrapper.s0.x.x, hw_input_global_wrapper_global_wrapper.s0.y)
+                            }
+                          }
+                        }
+                        consume hw_input_global_wrapper_global_wrapper.stencil {
+                          realize blur_unnormalized.stencil([0, 62], [0, 62]) {
+                            produce blur_unnormalized.stencil {
+                              for (blur_unnormalized.s0.y, 0, 62) {
+                                for (blur_unnormalized.s0.x.x, 0, 62) {
+                                  blur_unnormalized.stencil(blur_unnormalized.s0.x.x, blur_unnormalized.s0.y) = (uint16)0
+                                }
+                              }
+                              for (blur_unnormalized.s1.y, 0, 62) {
+                                for (blur_unnormalized.s1.x.x, 0, 62) {
+                                  blur_unnormalized.stencil(blur_unnormalized.s1.x.x, blur_unnormalized.s1.y) = ((hw_input_global_wrapper_global_wrapper.stencil(blur_unnormalized.s1.x.x, blur_unnormalized.s1.y)*(uint16)24) + (blur_unnormalized.stencil(blur_unnormalized.s1.x.x, blur_unnormalized.s1.y) + ((hw_input_global_wrapper_global_wrapper.stencil((blur_unnormalized.s1.x.x + 1), blur_unnormalized.s1.y)*(uint16)30) + ((hw_input_global_wrapper_global_wrapper.stencil((blur_unnormalized.s1.x.x + 2), blur_unnormalized.s1.y)*(uint16)24) + ((hw_input_global_wrapper_global_wrapper.stencil(blur_unnormalized.s1.x.x, (blur_unnormalized.s1.y + 1))*(uint16)30) + ((hw_input_global_wrapper_global_wrapper.stencil((blur_unnormalized.s1.x.x + 1), (blur_unnormalized.s1.y + 1))*(uint16)37) + ((hw_input_global_wrapper_global_wrapper.stencil((blur_unnormalized.s1.x.x + 2), (blur_unnormalized.s1.y + 1))*(uint16)30) + ((hw_input_global_wrapper_global_wrapper.stencil(blur_unnormalized.s1.x.x, (blur_unnormalized.s1.y + 2))*(uint16)24) + ((hw_input_global_wrapper_global_wrapper.stencil((blur_unnormalized.s1.x.x + 2), (blur_unnormalized.s1.y + 2))*(uint16)24) + (hw_input_global_wrapper_global_wrapper.stencil((blur_unnormalized.s1.x.x + 1), (blur_unnormalized.s1.y + 2))*(uint16)30))))))))))
+                                }
+                              }
+                            }
+                            consume blur_unnormalized.stencil {
+                              realize blur.stencil([0, 62], [0, 62]) {
+                                produce blur.stencil {
+                                  for (blur.s0.y, 0, 62) {
+                                    for (blur.s0.x.x, 0, 62) {
+                                      blur.stencil(blur.s0.x.x, blur.s0.y) = (blur_unnormalized.stencil(blur.s0.x.x, blur.s0.y)/(uint16)256)
+                                    }
+                                  }
+                                }
+                                consume blur.stencil {
+                                  for (hw_output.s0.y.yii, 0, 62) {
+                                    for (hw_output.s0.x.xii.xii, 0, 62) {
+                                      hw_output.stencil(hw_output.s0.x.xii.xii, hw_output.s0.y.yii) = blur.stencil(hw_output.s0.x.xii.xii, hw_output.s0.y.yii)
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+</span>
+<span style="color:blue">
+                    consume hw_output.stencil {
+                      for (hw_output_global_wrapper.s0.y.yi, 0, 62) {
+                        for (hw_output_global_wrapper.s0.x.xi.xi, 0, 62) {
+                          hw_output_global_wrapper.glb.stencil(hw_output_global_wrapper.s0.x.xi.xi, hw_output_global_wrapper.s0.y.yi) = hw_output.stencil(hw_output_global_wrapper.s0.x.xi.xi, hw_output_global_wrapper.s0.y.yi)
+                        }
+                      }
+                    }
+</span>
+                  }
+                }
+              }
+            }
+          }
+        }
+        consume hw_output_global_wrapper.glb.stencil {
+          assert(((0 <= _halide_buffer_get_min(output.buffer, 1)) && ((_halide_buffer_get_extent(output.buffer, 1) + _halide_buffer_get_min(output.buffer, 1)) <= 62)), halide_error_explicit_bounds_too_small("y", "output", 0, 61, _halide_buffer_get_min(output.buffer, 1), ((_halide_buffer_get_extent(output.buffer, 1) + _halide_buffer_get_min(output.buffer, 1)) + -1)))
+          assert(((0 <= _halide_buffer_get_min(output.buffer, 0)) && ((_halide_buffer_get_extent(output.buffer, 0) + _halide_buffer_get_min(output.buffer, 0)) <= 62)), halide_error_explicit_bounds_too_small("x", "output", 0, 61, _halide_buffer_get_min(output.buffer, 0), ((_halide_buffer_get_extent(output.buffer, 0) + _halide_buffer_get_min(output.buffer, 0)) + -1)))
+          produce output {
+            for (output.s0.y, 0, 62) {
+              for (output.s0.x, 0, 62) {
+                output[((_halide_buffer_get_stride(output.buffer, 1)*output.s0.y) + output.s0.x)] = uint8(hw_output_global_wrapper.glb.stencil(output.s0.x, output.s0.y))
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Above is a Gaussian blur with a memory hierarchy targetted for a CGRA. The orange section is
+intended for the CGRA with memories. The blue section is intended for the global buffer inputs
+and outputs. Here you can see the HalideIR in a form that is closer to the C++ implementation.
 
 ## Extending the Scheduling Language
 While most of the functionality for the scheduling language exists in Halide, one might find that
