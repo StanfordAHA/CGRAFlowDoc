@@ -916,7 +916,7 @@ can help identify what calls are being created in the hardware.</p>
         produce hw_output_global_wrapper.glb.stencil {
           produce _hls_accelerator.hw_output_global_wrapper {
             produce _hls_target.hw_output_global_wrapper {
-&lt;span style=<span class="hljs-string">&quot;color:blue&quot;</span>&gt;
+<span class="hljs-comment">// This represents the input global buffer</span>
               realize hw_input_global_wrapper.glb.<span class="hljs-built_in">stencil</span>([<span class="hljs-number">0</span>, <span class="hljs-number">64</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">64</span>]) {
                 produce hw_input_global_wrapper.glb.stencil {
                   <span class="hljs-keyword">for</span> (hw_input_global_wrapper.s0.y, <span class="hljs-number">0</span>, <span class="hljs-number">64</span>) {
@@ -925,8 +925,7 @@ can help identify what calls are being created in the hardware.</p>
                     }
                   }
                 }
-&lt;/span&gt;
-&lt;span style=<span class="hljs-string">&quot;color:orange&quot;</span>&gt;
+<span class="hljs-comment">// This section is for the CGRA MEMs and PEs</span>
                 consume hw_input_global_wrapper.glb.stencil {
                   realize hw_output.<span class="hljs-built_in">stencil</span>([<span class="hljs-number">0</span>, <span class="hljs-number">62</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">62</span>]) {
                     produce hw_output.stencil {
@@ -974,8 +973,7 @@ can help identify what calls are being created in the hardware.</p>
                         }
                       }
                     }
-&lt;/span&gt;
-&lt;span style=<span class="hljs-string">&quot;color:blue&quot;</span>&gt;
+<span class="hljs-comment">// This represents the output global buffer</span>
                     consume hw_output.stencil {
                       <span class="hljs-keyword">for</span> (hw_output_global_wrapper.s0.y.yi, <span class="hljs-number">0</span>, <span class="hljs-number">62</span>) {
                         <span class="hljs-keyword">for</span> (hw_output_global_wrapper.s0.x.xi.xi, <span class="hljs-number">0</span>, <span class="hljs-number">62</span>) {
@@ -983,7 +981,6 @@ can help identify what calls are being created in the hardware.</p>
                         }
                       }
                     }
-&lt;/span&gt;
                   }
                 }
               }
@@ -1006,9 +1003,9 @@ can help identify what calls are being created in the hardware.</p>
   }
 }
 </code></pre>
-<p>Above is a Gaussian blur with a memory hierarchy targetted for a CGRA. The orange section is
-intended for the CGRA with memories. The blue section is intended for the global buffer inputs
-and outputs. Here you can see the HalideIR in a form that is closer to the C++ implementation.</p>
+<p>Above is a Gaussian blur with a memory hierarchy targetted for a CGRA. The sections are marked based on 
+intention. The loopnest can be analyzed for code intedend for the CGRA with memories as well as global buffer input
+and output. The above is the default printout for  HalideIR in a form that is close to the C++ implementation.</p>
 <h2 id="extending-the-scheduling-language">Extending the Scheduling Language</h2>
 <p>While most of the functionality for the scheduling language exists in Halide, one might find that
 extending the scheduling to be needed. This might be for additional functionality or additional
@@ -1056,7 +1053,7 @@ syntatic sugar. These modifications will start in <code>src/Func.cpp</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Writing Schedules","level":"1.4.3.2","depth":3,"next":{"title":"Supported Operations","level":"1.4.3.3","depth":3,"path":"halide/operations.md","ref":"halide/operations.md","articles":[]},"previous":{"title":"Writing Applications","level":"1.4.3.1","depth":3,"path":"halide/writing-apps.md","ref":"halide/writing-apps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6.1"},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"The Ultimate Documentation for CGRAFlow","gitbook":"*"},"file":{"path":"halide/writing-schedules.md","mtime":"2021-09-17T17:03:04.977Z","type":"markdown"},"gitbook":{"version":"3.6.21","time":"2021-09-17T17:03:27.039Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Writing Schedules","level":"1.4.3.2","depth":3,"next":{"title":"Supported Operations","level":"1.4.3.3","depth":3,"path":"halide/operations.md","ref":"halide/operations.md","articles":[]},"previous":{"title":"Writing Applications","level":"1.4.3.1","depth":3,"path":"halide/writing-apps.md","ref":"halide/writing-apps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6.1"},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"The Ultimate Documentation for CGRAFlow","gitbook":"*"},"file":{"path":"halide/writing-schedules.md","mtime":"2021-09-17T17:10:48.331Z","type":"markdown"},"gitbook":{"version":"3.6.21","time":"2021-09-17T17:11:09.351Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
